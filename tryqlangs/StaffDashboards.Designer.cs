@@ -113,7 +113,7 @@
             btnViewQrCode.Name = "btnViewQrCode";
             btnViewQrCode.Size = new Size(190, 30);
             btnViewQrCode.TabIndex = 23;
-            btnViewQrCode.Text = "View Qr Code";
+            btnViewQrCode.Text = "View Details";
             btnViewQrCode.UseVisualStyleBackColor = false;
             // 
             // StaffDashboards

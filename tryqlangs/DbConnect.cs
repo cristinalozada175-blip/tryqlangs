@@ -12,7 +12,7 @@ namespace tryqlangs
         public class DBConnect
         {
             private MySqlConnection connection = new MySqlConnection(
-                "server=localhost;user=root;database=studentdb;port=3306;password=;"
+                "server=localhost;user=root;database=sql12825429;port=3306;password=;"
             );
 
             public MySqlConnection Connection => connection;

@@ -34,8 +34,9 @@
             btnMyQrCode = new Button();
             btnMyReservation = new Button();
             btnLogOut = new Button();
-            btnViewQrCode = new Button();
+            btnVewDetails = new Button();
             dgvRecentReserve = new DataGridView();
+            btnViewQrCode = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRecentReserve).BeginInit();
             SuspendLayout();
             // 
@@ -105,19 +106,20 @@
             btnLogOut.TabIndex = 9;
             btnLogOut.UseVisualStyleBackColor = false;
             // 
-            // btnViewQrCode
+            // btnVewDetails
             // 
-            btnViewQrCode.BackColor = Color.Transparent;
-            btnViewQrCode.FlatAppearance.BorderSize = 0;
-            btnViewQrCode.FlatStyle = FlatStyle.Flat;
-            btnViewQrCode.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
-            btnViewQrCode.ForeColor = Color.White;
-            btnViewQrCode.Location = new Point(501, 475);
-            btnViewQrCode.Name = "btnViewQrCode";
-            btnViewQrCode.Size = new Size(190, 30);
-            btnViewQrCode.TabIndex = 10;
-            btnViewQrCode.Text = "View Qr Code";
-            btnViewQrCode.UseVisualStyleBackColor = false;
+            btnVewDetails.BackColor = Color.Transparent;
+            btnVewDetails.FlatAppearance.BorderSize = 0;
+            btnVewDetails.FlatStyle = FlatStyle.Flat;
+            btnVewDetails.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
+            btnVewDetails.ForeColor = Color.White;
+            btnVewDetails.Location = new Point(604, 471);
+            btnVewDetails.Name = "btnVewDetails";
+            btnVewDetails.Size = new Size(190, 30);
+            btnVewDetails.TabIndex = 10;
+            btnVewDetails.Text = "View Details";
+            btnVewDetails.UseVisualStyleBackColor = false;
+            btnVewDetails.Click += btnViewQrCode_Click;
             // 
             // dgvRecentReserve
             // 
@@ -125,8 +127,22 @@
             dgvRecentReserve.Location = new Point(262, 138);
             dgvRecentReserve.Name = "dgvRecentReserve";
             dgvRecentReserve.RowHeadersWidth = 51;
-            dgvRecentReserve.Size = new Size(667, 331);
+            dgvRecentReserve.Size = new Size(667, 307);
             dgvRecentReserve.TabIndex = 11;
+            // 
+            // btnViewQrCode
+            // 
+            btnViewQrCode.BackColor = Color.Transparent;
+            btnViewQrCode.FlatAppearance.BorderSize = 0;
+            btnViewQrCode.FlatStyle = FlatStyle.Flat;
+            btnViewQrCode.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
+            btnViewQrCode.ForeColor = Color.White;
+            btnViewQrCode.Location = new Point(400, 470);
+            btnViewQrCode.Name = "btnViewQrCode";
+            btnViewQrCode.Size = new Size(190, 30);
+            btnViewQrCode.TabIndex = 12;
+            btnViewQrCode.Text = "View Qr Code";
+            btnViewQrCode.UseVisualStyleBackColor = false;
             // 
             // UserDashboard
             // 
@@ -135,8 +151,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
-            Controls.Add(dgvRecentReserve);
             Controls.Add(btnViewQrCode);
+            Controls.Add(dgvRecentReserve);
+            Controls.Add(btnVewDetails);
             Controls.Add(btnLogOut);
             Controls.Add(btnMyReservation);
             Controls.Add(btnMyQrCode);
@@ -157,7 +174,8 @@
         private Button btnMyQrCode;
         private Button btnMyReservation;
         private Button btnLogOut;
-        private Button btnViewQrCode;
+        private Button btnVewDetails;
         private DataGridView dgvRecentReserve;
+        private Button btnViewQrCode;
     }
 }
