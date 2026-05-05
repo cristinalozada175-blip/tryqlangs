@@ -40,6 +40,7 @@
             txtEmailAddress = new TextBox();
             txtPhoneNumber = new TextBox();
             txtEnterPassword = new TextBox();
+            chbShowPassword = new CheckBox();
             SuspendLayout();
             // 
             // btnLogOut
@@ -120,6 +121,7 @@
             btnChangePassword.TabIndex = 24;
             btnChangePassword.Text = "Change Password";
             btnChangePassword.UseVisualStyleBackColor = false;
+            btnChangePassword.Click += btnChangePassword_Click;
             // 
             // btnUpgradeProfile
             // 
@@ -134,6 +136,7 @@
             btnUpgradeProfile.TabIndex = 25;
             btnUpgradeProfile.Text = "Upgrade Profile";
             btnUpgradeProfile.UseVisualStyleBackColor = false;
+            btnUpgradeProfile.Click += btnUpgradeProfile_Click;
             // 
             // txtFullName
             // 
@@ -175,6 +178,20 @@
             txtEnterPassword.Size = new Size(280, 25);
             txtEnterPassword.TabIndex = 29;
             // 
+            // chbShowPassword
+            // 
+            chbShowPassword.AutoSize = true;
+            chbShowPassword.BackColor = Color.Transparent;
+            chbShowPassword.Font = new Font("Segoe UI", 10F);
+            chbShowPassword.ForeColor = Color.White;
+            chbShowPassword.Location = new Point(651, 342);
+            chbShowPassword.Name = "chbShowPassword";
+            chbShowPassword.Size = new Size(148, 27);
+            chbShowPassword.TabIndex = 30;
+            chbShowPassword.Text = "Show Password";
+            chbShowPassword.UseVisualStyleBackColor = false;
+            chbShowPassword.CheckedChanged += chbShowPassword_CheckedChanged;
+            // 
             // Profile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -182,6 +199,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(chbShowPassword);
             Controls.Add(txtEnterPassword);
             Controls.Add(txtPhoneNumber);
             Controls.Add(txtEmailAddress);
@@ -212,5 +230,6 @@
         private TextBox txtEmailAddress;
         private TextBox txtPhoneNumber;
         private TextBox txtEnterPassword;
+        private CheckBox chbShowPassword;
     }
 }

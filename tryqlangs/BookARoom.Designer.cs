@@ -88,6 +88,7 @@
             btnLogOut.Size = new Size(190, 37);
             btnLogOut.TabIndex = 18;
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // btnMyReservation
             // 
@@ -101,6 +102,7 @@
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 17;
             btnMyReservation.UseVisualStyleBackColor = false;
+            btnMyReservation.Click += btnMyReservation_Click;
             // 
             // btnMyQrCode
             // 
@@ -114,6 +116,7 @@
             btnMyQrCode.Size = new Size(190, 37);
             btnMyQrCode.TabIndex = 16;
             btnMyQrCode.UseVisualStyleBackColor = false;
+            btnMyQrCode.Click += btnMyQrCode_Click;
             // 
             // btnBookRoom
             // 
@@ -127,6 +130,7 @@
             btnBookRoom.Size = new Size(190, 37);
             btnBookRoom.TabIndex = 15;
             btnBookRoom.UseVisualStyleBackColor = false;
+            btnBookRoom.Click += btnBookRoom_Click;
             // 
             // btnProfile
             // 
@@ -140,6 +144,7 @@
             btnProfile.Size = new Size(190, 37);
             btnProfile.TabIndex = 14;
             btnProfile.UseVisualStyleBackColor = false;
+            btnProfile.Click += btnProfile_Click;
             // 
             // dtpCheckInDate
             // 

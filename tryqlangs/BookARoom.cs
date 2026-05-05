@@ -6,6 +6,8 @@ namespace tryqlangs
 {
     public partial class BookARoom : Form
     {
+        bool isCalculated = false;
+        decimal calculatedTotal = 0;
         public BookARoom()
         {
             InitializeComponent();
@@ -17,9 +19,11 @@ namespace tryqlangs
         private void CalculateTotalPrice()
         {
             if (cmbRoomType.Text == "" ||
-                dtpCheckOutDate.Value.Date <= dtpCheckInDate.Value.Date)
+        dtpCheckOutDate.Value.Date <= dtpCheckInDate.Value.Date)
             {
                 txtTotalAmount.Text = "";
+                calculatedTotal = 0;
+                isCalculated = false; // ✅ VERY IMPORTANT
                 return;
             }
 
@@ -33,9 +37,9 @@ namespace tryqlangs
                 pricePerNight = 10000;
 
             int nights = (dtpCheckOutDate.Value.Date - dtpCheckInDate.Value.Date).Days;
-            decimal totalPrice = pricePerNight * nights;
+            calculatedTotal = pricePerNight * nights;
 
-            txtTotalAmount.Text = totalPrice.ToString("N2");
+            txtTotalAmount.Text = calculatedTotal.ToString("F2");
         }
 
         // ✅ GET room_id FROM DATABASE (NO HARDCODE)
@@ -65,6 +69,8 @@ namespace tryqlangs
 
         private void cmbRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            isCalculated = false; // ❗ reset
+
             if (cmbRoomType.Text == "Standard Room")
                 txtNumberOfGuest.Text = "2";
             else if (cmbRoomType.Text == "Suite Room")
@@ -74,16 +80,19 @@ namespace tryqlangs
             else
                 txtNumberOfGuest.Text = "";
 
-            CalculateTotalPrice();
+            CalculateTotalPrice(); // optional (UI update only)
         }
+       
 
         private void dtpCheckInDate_ValueChanged(object sender, EventArgs e)
         {
+            isCalculated = false; // ❗ reset
             CalculateTotalPrice();
         }
 
         private void dtpCheckOutDate_ValueChanged(object sender, EventArgs e)
         {
+            isCalculated = false; // ❗ reset
             CalculateTotalPrice();
         }
 
@@ -123,12 +132,20 @@ namespace tryqlangs
                 return;
             }
 
-            // CALCULATE PRICE
-            CalculateTotalPrice();
-
-            if (!decimal.TryParse(txtTotalAmount.Text, out decimal totalPrice))
+            if (!isCalculated)
             {
-                MessageBox.Show("Error calculating total price.");
+                MessageBox.Show("Please click CALCULATE first before booking.");
+                return;
+            }
+
+            // CALCULATE PRICE
+
+
+            decimal totalPrice = calculatedTotal;
+
+            if (totalPrice <= 0)
+            {
+                MessageBox.Show("Invalid total price.");
                 return;
             }
 
@@ -151,9 +168,9 @@ namespace tryqlangs
                 MySqlConnection con = db.Connection;
 
                 string query = @"INSERT INTO reservationstbl 
-                    (check_in, check_out, status, room_id, user_id)
+                    (check_in, check_out, status, room_id, user_id, total_amount)
                     VALUES
-                    (@checkin, @checkout, @status, @roomid, @userid)";
+                    (@checkin, @checkout, @status, @roomid, @userid, @total)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
@@ -162,6 +179,8 @@ namespace tryqlangs
                     cmd.Parameters.AddWithValue("@status", "upcoming");
                     cmd.Parameters.AddWithValue("@roomid", roomId);
                     cmd.Parameters.AddWithValue("@userid", userId);
+                    cmd.Parameters.AddWithValue("@total", totalPrice);
+
 
                     db.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
@@ -196,6 +215,53 @@ namespace tryqlangs
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             CalculateTotalPrice();
+            isCalculated = true;
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+            this.Hide();
+        }
+
+        private void btnBookRoom_Click(object sender, EventArgs e)
+        {
+            BookARoom bookARoom = new BookARoom();
+            bookARoom.Show();
+            this.Hide();
+        }
+
+        private void btnMyQrCode_Click(object sender, EventArgs e)
+        {
+            MyQrCode myQrCode = new MyQrCode();
+            myQrCode.Show();
+            this.Hide();
+        }
+
+        private void btnMyReservation_Click(object sender, EventArgs e)
+        {
+            UserDashboard Userdashboard = new UserDashboard();
+            Userdashboard.Show();
+            this.Hide();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to logout?",
+                "Logout Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                LogIn loginForm = new LogIn();
+                loginForm.Show();
+                this.Hide();
+            }
+        }
+
+        
     }
 }
