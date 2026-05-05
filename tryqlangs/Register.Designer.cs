@@ -51,6 +51,7 @@
             btnLogin.TabIndex = 3;
             btnLogin.Text = "Log In";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnRegister
             // 
@@ -65,6 +66,7 @@
             btnRegister.TabIndex = 4;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
             // 
             // txtUsername
             // 
@@ -110,7 +112,7 @@
             // 
             cmbRole.FlatStyle = FlatStyle.Flat;
             cmbRole.FormattingEnabled = true;
-            cmbRole.Items.AddRange(new object[] { "Costumer", "Staff", "Admin" });
+            cmbRole.Items.AddRange(new object[] { "customer", "staff", "admin" });
             cmbRole.Location = new Point(627, 335);
             cmbRole.Name = "cmbRole";
             cmbRole.Size = new Size(295, 28);

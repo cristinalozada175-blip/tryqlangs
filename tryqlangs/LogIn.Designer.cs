@@ -85,6 +85,7 @@
             btnSignUp.TabIndex = 3;
             btnSignUp.Text = "Sign Up";
             btnSignUp.UseVisualStyleBackColor = false;
+            btnSignUp.Click += btnSignUp_Click;
             // 
             // label1
             // 
@@ -119,6 +120,7 @@
             chbShowPassword.TabIndex = 6;
             chbShowPassword.Text = "Show Password";
             chbShowPassword.UseVisualStyleBackColor = false;
+            chbShowPassword.CheckedChanged += chbShowPassword_CheckedChanged;
             // 
             // LogIn
             // 

@@ -36,7 +36,7 @@
             btnStaff = new Button();
             btnReports = new Button();
             btnPayments = new Button();
-            btnViewQrCode = new Button();
+            btnViewDetails = new Button();
             SuspendLayout();
             // 
             // btnRooms
@@ -130,19 +130,19 @@
             btnPayments.TabIndex = 21;
             btnPayments.UseVisualStyleBackColor = false;
             // 
-            // btnViewQrCode
+            // btnViewDetails
             // 
-            btnViewQrCode.BackColor = Color.Transparent;
-            btnViewQrCode.FlatAppearance.BorderSize = 0;
-            btnViewQrCode.FlatStyle = FlatStyle.Flat;
-            btnViewQrCode.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
-            btnViewQrCode.ForeColor = Color.White;
-            btnViewQrCode.Location = new Point(502, 474);
-            btnViewQrCode.Name = "btnViewQrCode";
-            btnViewQrCode.Size = new Size(190, 30);
-            btnViewQrCode.TabIndex = 22;
-            btnViewQrCode.Text = "View Qr Code";
-            btnViewQrCode.UseVisualStyleBackColor = false;
+            btnViewDetails.BackColor = Color.Transparent;
+            btnViewDetails.FlatAppearance.BorderSize = 0;
+            btnViewDetails.FlatStyle = FlatStyle.Flat;
+            btnViewDetails.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
+            btnViewDetails.ForeColor = Color.White;
+            btnViewDetails.Location = new Point(502, 474);
+            btnViewDetails.Name = "btnViewDetails";
+            btnViewDetails.Size = new Size(190, 30);
+            btnViewDetails.TabIndex = 22;
+            btnViewDetails.Text = "View Details";
+            btnViewDetails.UseVisualStyleBackColor = false;
             // 
             // AdminDashboards
             // 
@@ -151,7 +151,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
-            Controls.Add(btnViewQrCode);
+            Controls.Add(btnViewDetails);
             Controls.Add(btnPayments);
             Controls.Add(btnReports);
             Controls.Add(btnStaff);
@@ -174,6 +174,6 @@
         private Button btnStaff;
         private Button btnReports;
         private Button btnPayments;
-        private Button btnViewQrCode;
+        private Button btnViewDetails;
     }
 }
