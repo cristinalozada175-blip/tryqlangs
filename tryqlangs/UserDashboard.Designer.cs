@@ -35,9 +35,10 @@
             btnMyReservation = new Button();
             btnLogOut = new Button();
             btnVewDetails = new Button();
-            dgvRecentReserve = new DataGridView();
+            dgvRecentReservation = new DataGridView();
             btnViewQrCode = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvRecentReserve).BeginInit();
+            btnRefresh = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).BeginInit();
             SuspendLayout();
             // 
             // btnProfile
@@ -52,6 +53,7 @@
             btnProfile.Size = new Size(190, 37);
             btnProfile.TabIndex = 5;
             btnProfile.UseVisualStyleBackColor = false;
+            btnProfile.Click += btnProfile_Click;
             // 
             // btnBookRoom
             // 
@@ -65,6 +67,7 @@
             btnBookRoom.Size = new Size(190, 37);
             btnBookRoom.TabIndex = 6;
             btnBookRoom.UseVisualStyleBackColor = false;
+            btnBookRoom.Click += btnBookRoom_Click;
             // 
             // btnMyQrCode
             // 
@@ -92,6 +95,7 @@
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 8;
             btnMyReservation.UseVisualStyleBackColor = false;
+            btnMyReservation.Click += btnMyReservation_Click;
             // 
             // btnLogOut
             // 
@@ -105,6 +109,7 @@
             btnLogOut.Size = new Size(190, 37);
             btnLogOut.TabIndex = 9;
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // btnVewDetails
             // 
@@ -121,14 +126,14 @@
             btnVewDetails.UseVisualStyleBackColor = false;
             btnVewDetails.Click += btnViewQrCode_Click;
             // 
-            // dgvRecentReserve
+            // dgvRecentReservation
             // 
-            dgvRecentReserve.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRecentReserve.Location = new Point(262, 138);
-            dgvRecentReserve.Name = "dgvRecentReserve";
-            dgvRecentReserve.RowHeadersWidth = 51;
-            dgvRecentReserve.Size = new Size(667, 307);
-            dgvRecentReserve.TabIndex = 11;
+            dgvRecentReservation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRecentReservation.Location = new Point(262, 138);
+            dgvRecentReservation.Name = "dgvRecentReservation";
+            dgvRecentReservation.RowHeadersWidth = 51;
+            dgvRecentReservation.Size = new Size(667, 307);
+            dgvRecentReservation.TabIndex = 11;
             // 
             // btnViewQrCode
             // 
@@ -144,6 +149,21 @@
             btnViewQrCode.Text = "View Qr Code";
             btnViewQrCode.UseVisualStyleBackColor = false;
             // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.Transparent;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(881, 83);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(58, 52);
+            btnRefresh.TabIndex = 13;
+            btnRefresh.Text = "⭮";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // UserDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -151,8 +171,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnRefresh);
             Controls.Add(btnViewQrCode);
-            Controls.Add(dgvRecentReserve);
+            Controls.Add(dgvRecentReservation);
             Controls.Add(btnVewDetails);
             Controls.Add(btnLogOut);
             Controls.Add(btnMyReservation);
@@ -163,7 +184,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "UserDashboard";
             Load += UserDashboard_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvRecentReserve).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).EndInit();
             ResumeLayout(false);
         }
 
@@ -175,7 +196,8 @@
         private Button btnMyReservation;
         private Button btnLogOut;
         private Button btnVewDetails;
-        private DataGridView dgvRecentReserve;
+        private DataGridView dgvRecentReservation;
         private Button btnViewQrCode;
+        private Button btnRefresh;
     }
 }
