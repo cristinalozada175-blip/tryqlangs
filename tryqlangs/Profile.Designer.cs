@@ -31,11 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             btnLogOut = new Button();
             btnMyReservation = new Button();
-            btnMyQrCode = new Button();
             btnBookRoom = new Button();
             btnProfile = new Button();
-            btnChangePassword = new Button();
-            btnUpgradeProfile = new Button();
             txtFullName = new TextBox();
             txtEmailAddress = new TextBox();
             txtPhoneNumber = new TextBox();
@@ -55,6 +52,7 @@
             btnLogOut.Size = new Size(190, 37);
             btnLogOut.TabIndex = 23;
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // btnMyReservation
             // 
@@ -63,24 +61,12 @@
             btnMyReservation.FlatStyle = FlatStyle.Flat;
             btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMyReservation.ForeColor = Color.White;
-            btnMyReservation.Location = new Point(12, 348);
+            btnMyReservation.Location = new Point(3, 299);
             btnMyReservation.Name = "btnMyReservation";
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 22;
             btnMyReservation.UseVisualStyleBackColor = false;
-            // 
-            // btnMyQrCode
-            // 
-            btnMyQrCode.BackColor = Color.Transparent;
-            btnMyQrCode.FlatAppearance.BorderSize = 0;
-            btnMyQrCode.FlatStyle = FlatStyle.Flat;
-            btnMyQrCode.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyQrCode.ForeColor = Color.White;
-            btnMyQrCode.Location = new Point(12, 299);
-            btnMyQrCode.Name = "btnMyQrCode";
-            btnMyQrCode.Size = new Size(190, 37);
-            btnMyQrCode.TabIndex = 21;
-            btnMyQrCode.UseVisualStyleBackColor = false;
+            btnMyReservation.Click += btnMyReservation_Click;
             // 
             // btnBookRoom
             // 
@@ -94,6 +80,7 @@
             btnBookRoom.Size = new Size(190, 37);
             btnBookRoom.TabIndex = 20;
             btnBookRoom.UseVisualStyleBackColor = false;
+            btnBookRoom.Click += btnBookRoom_Click;
             // 
             // btnProfile
             // 
@@ -107,75 +94,46 @@
             btnProfile.Size = new Size(190, 37);
             btnProfile.TabIndex = 19;
             btnProfile.UseVisualStyleBackColor = false;
-            // 
-            // btnChangePassword
-            // 
-            btnChangePassword.BackColor = Color.Transparent;
-            btnChangePassword.FlatAppearance.BorderSize = 0;
-            btnChangePassword.FlatStyle = FlatStyle.Flat;
-            btnChangePassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnChangePassword.ForeColor = Color.White;
-            btnChangePassword.Location = new Point(734, 375);
-            btnChangePassword.Name = "btnChangePassword";
-            btnChangePassword.Size = new Size(190, 37);
-            btnChangePassword.TabIndex = 24;
-            btnChangePassword.Text = "Change Password";
-            btnChangePassword.UseVisualStyleBackColor = false;
-            btnChangePassword.Click += btnChangePassword_Click;
-            // 
-            // btnUpgradeProfile
-            // 
-            btnUpgradeProfile.BackColor = Color.Transparent;
-            btnUpgradeProfile.FlatAppearance.BorderSize = 0;
-            btnUpgradeProfile.FlatStyle = FlatStyle.Flat;
-            btnUpgradeProfile.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUpgradeProfile.ForeColor = Color.White;
-            btnUpgradeProfile.Location = new Point(528, 375);
-            btnUpgradeProfile.Name = "btnUpgradeProfile";
-            btnUpgradeProfile.Size = new Size(190, 37);
-            btnUpgradeProfile.TabIndex = 25;
-            btnUpgradeProfile.Text = "Upgrade Profile";
-            btnUpgradeProfile.UseVisualStyleBackColor = false;
-            btnUpgradeProfile.Click += btnUpgradeProfile_Click;
+            btnProfile.Click += btnProfile_Click;
             // 
             // txtFullName
             // 
             txtFullName.BorderStyle = BorderStyle.None;
             txtFullName.Font = new Font("Segoe UI", 11F);
-            txtFullName.Location = new Point(661, 195);
+            txtFullName.Location = new Point(656, 226);
             txtFullName.Name = "txtFullName";
             txtFullName.PlaceholderText = "Enter Full Name";
-            txtFullName.Size = new Size(280, 25);
+            txtFullName.Size = new Size(290, 25);
             txtFullName.TabIndex = 26;
             // 
             // txtEmailAddress
             // 
             txtEmailAddress.BorderStyle = BorderStyle.None;
             txtEmailAddress.Font = new Font("Segoe UI", 11F);
-            txtEmailAddress.Location = new Point(661, 233);
+            txtEmailAddress.Location = new Point(656, 267);
             txtEmailAddress.Name = "txtEmailAddress";
             txtEmailAddress.PlaceholderText = "Enter Email Address";
-            txtEmailAddress.Size = new Size(280, 25);
+            txtEmailAddress.Size = new Size(290, 25);
             txtEmailAddress.TabIndex = 27;
             // 
             // txtPhoneNumber
             // 
             txtPhoneNumber.BorderStyle = BorderStyle.None;
             txtPhoneNumber.Font = new Font("Segoe UI", 11F);
-            txtPhoneNumber.Location = new Point(661, 271);
+            txtPhoneNumber.Location = new Point(656, 306);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.PlaceholderText = "Enter Phone Number";
-            txtPhoneNumber.Size = new Size(280, 25);
+            txtPhoneNumber.Size = new Size(290, 25);
             txtPhoneNumber.TabIndex = 28;
             // 
             // txtEnterPassword
             // 
             txtEnterPassword.BorderStyle = BorderStyle.None;
             txtEnterPassword.Font = new Font("Segoe UI", 11F);
-            txtEnterPassword.Location = new Point(661, 311);
+            txtEnterPassword.Location = new Point(656, 347);
             txtEnterPassword.Name = "txtEnterPassword";
             txtEnterPassword.PlaceholderText = "Enter Password";
-            txtEnterPassword.Size = new Size(280, 25);
+            txtEnterPassword.Size = new Size(290, 25);
             txtEnterPassword.TabIndex = 29;
             // 
             // chbShowPassword
@@ -184,7 +142,7 @@
             chbShowPassword.BackColor = Color.Transparent;
             chbShowPassword.Font = new Font("Segoe UI", 10F);
             chbShowPassword.ForeColor = Color.White;
-            chbShowPassword.Location = new Point(651, 342);
+            chbShowPassword.Location = new Point(641, 384);
             chbShowPassword.Name = "chbShowPassword";
             chbShowPassword.Size = new Size(148, 27);
             chbShowPassword.TabIndex = 30;
@@ -204,11 +162,8 @@
             Controls.Add(txtPhoneNumber);
             Controls.Add(txtEmailAddress);
             Controls.Add(txtFullName);
-            Controls.Add(btnUpgradeProfile);
-            Controls.Add(btnChangePassword);
             Controls.Add(btnLogOut);
             Controls.Add(btnMyReservation);
-            Controls.Add(btnMyQrCode);
             Controls.Add(btnBookRoom);
             Controls.Add(btnProfile);
             Name = "Profile";
@@ -221,11 +176,8 @@
 
         private Button btnLogOut;
         private Button btnMyReservation;
-        private Button btnMyQrCode;
         private Button btnBookRoom;
         private Button btnProfile;
-        private Button btnChangePassword;
-        private Button btnUpgradeProfile;
         private TextBox txtFullName;
         private TextBox txtEmailAddress;
         private TextBox txtPhoneNumber;

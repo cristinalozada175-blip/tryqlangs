@@ -34,61 +34,40 @@ namespace tryqlangs
             }
         }
 
-        private void btnUpgradeProfile_Click(object sender, EventArgs e)
-        {
-            string fullname = txtFullName.Text.Trim();
-            string email = txtEmailAddress.Text.Trim();
-            string phonenumber = txtPhoneNumber.Text.Trim();
 
 
-            if (string.IsNullOrEmpty(fullname) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phonenumber))
-            {
-                MessageBox.Show("Please fill all fields.");
-                return;
-            }
-
-            DBConnect db = new DBConnect();
-
-            try
-            {
-
-                db.Open();
-                string query = "UPDATE userstbl SET fullname = @fullname, email = @email, phonenumber = @phonenumber, password = @password WHERE id = @userId";
-                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
-                cmd.Parameters.AddWithValue("@fullname", fullname);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@phonenumber", phonenumber);
-                int rowsAffected = cmd.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Profile updated successfully.");
-
-                    txtFullName.Clear();
-                    txtEmailAddress.Clear();
-                    txtPhoneNumber.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("No changes were made to the profile.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while updating the profile: " + ex.Message);
-            }
-            finally
-            {
-                db.Close();
-            }
-        }
-
-        private void btnChangePassword_Click(object sender, EventArgs e)
-        {
-
-        }
+        
+        
 
         
 
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile();
+            profileForm.Show();
+            this.Hide();
+        }
 
+        private void btnBookRoom_Click(object sender, EventArgs e)
+        {
+            BookARoom bookARoomForm = new BookARoom();
+            bookARoomForm.Show();
+            this.Hide();
+        }
+
+
+        private void btnMyReservation_Click(object sender, EventArgs e)
+        {
+            UserDashboard userDashboardForm = new UserDashboard();
+            userDashboardForm.Show();
+            this.Hide();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LogIn logInForm = new LogIn();
+            logInForm.Show();
+            this.Hide();
+        }
     }
 }

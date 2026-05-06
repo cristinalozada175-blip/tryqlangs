@@ -41,6 +41,7 @@
             dtpCheckOutDate = new DateTimePicker();
             cmbRoomType = new ComboBox();
             btnBookNow = new Button();
+            btnReceipt = new Button();
             SuspendLayout();
             // 
             // btnCalculate
@@ -50,7 +51,7 @@
             btnCalculate.FlatStyle = FlatStyle.Flat;
             btnCalculate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCalculate.ForeColor = Color.White;
-            btnCalculate.Location = new Point(260, 445);
+            btnCalculate.Location = new Point(260, 411);
             btnCalculate.Name = "btnCalculate";
             btnCalculate.Size = new Size(166, 36);
             btnCalculate.TabIndex = 3;
@@ -62,18 +63,18 @@
             // 
             txtNumberOfGuest.BorderStyle = BorderStyle.None;
             txtNumberOfGuest.Font = new Font("Segoe UI", 11F);
-            txtNumberOfGuest.Location = new Point(288, 326);
+            txtNumberOfGuest.Location = new Point(260, 313);
             txtNumberOfGuest.Name = "txtNumberOfGuest";
-            txtNumberOfGuest.Size = new Size(295, 25);
+            txtNumberOfGuest.Size = new Size(349, 25);
             txtNumberOfGuest.TabIndex = 8;
             // 
             // txtTotalAmount
             // 
             txtTotalAmount.BorderStyle = BorderStyle.None;
             txtTotalAmount.Font = new Font("Segoe UI", 11F);
-            txtTotalAmount.Location = new Point(288, 389);
+            txtTotalAmount.Location = new Point(260, 374);
             txtTotalAmount.Name = "txtTotalAmount";
-            txtTotalAmount.Size = new Size(295, 25);
+            txtTotalAmount.Size = new Size(349, 25);
             txtTotalAmount.TabIndex = 13;
             // 
             // btnLogOut
@@ -148,25 +149,25 @@
             // 
             // dtpCheckInDate
             // 
-            dtpCheckInDate.Location = new Point(288, 202);
+            dtpCheckInDate.Location = new Point(260, 191);
             dtpCheckInDate.Name = "dtpCheckInDate";
-            dtpCheckInDate.Size = new Size(295, 27);
+            dtpCheckInDate.Size = new Size(349, 27);
             dtpCheckInDate.TabIndex = 19;
             // 
             // dtpCheckOutDate
             // 
-            dtpCheckOutDate.Location = new Point(288, 264);
+            dtpCheckOutDate.Location = new Point(260, 252);
             dtpCheckOutDate.Name = "dtpCheckOutDate";
-            dtpCheckOutDate.Size = new Size(295, 27);
+            dtpCheckOutDate.Size = new Size(349, 27);
             dtpCheckOutDate.TabIndex = 20;
             // 
             // cmbRoomType
             // 
             cmbRoomType.FormattingEnabled = true;
             cmbRoomType.Items.AddRange(new object[] { "Standard Room", "Suite Room", "Deluxe Room" });
-            cmbRoomType.Location = new Point(288, 139);
+            cmbRoomType.Location = new Point(260, 132);
             cmbRoomType.Name = "cmbRoomType";
-            cmbRoomType.Size = new Size(296, 28);
+            cmbRoomType.Size = new Size(349, 28);
             cmbRoomType.TabIndex = 21;
             cmbRoomType.SelectedIndexChanged += cmbRoomType_SelectedIndexChanged;
             // 
@@ -177,13 +178,27 @@
             btnBookNow.FlatStyle = FlatStyle.Flat;
             btnBookNow.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBookNow.ForeColor = Color.White;
-            btnBookNow.Location = new Point(436, 445);
+            btnBookNow.Location = new Point(439, 411);
             btnBookNow.Name = "btnBookNow";
             btnBookNow.Size = new Size(166, 36);
             btnBookNow.TabIndex = 22;
             btnBookNow.Text = "Book Now";
             btnBookNow.UseVisualStyleBackColor = false;
             btnBookNow.Click += btnBookNow_Click;
+            // 
+            // btnReceipt
+            // 
+            btnReceipt.BackColor = Color.Transparent;
+            btnReceipt.FlatAppearance.BorderSize = 0;
+            btnReceipt.FlatStyle = FlatStyle.Flat;
+            btnReceipt.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReceipt.ForeColor = Color.White;
+            btnReceipt.Location = new Point(349, 453);
+            btnReceipt.Name = "btnReceipt";
+            btnReceipt.Size = new Size(166, 36);
+            btnReceipt.TabIndex = 23;
+            btnReceipt.Text = "Receipt";
+            btnReceipt.UseVisualStyleBackColor = false;
             // 
             // BookARoom
             // 
@@ -193,6 +208,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             CausesValidation = false;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnReceipt);
             Controls.Add(btnBookNow);
             Controls.Add(cmbRoomType);
             Controls.Add(dtpCheckOutDate);
@@ -227,5 +243,6 @@
         private DateTimePicker dtpCheckOutDate;
         private ComboBox cmbRoomType;
         private Button btnBookNow;
+        private Button btnReceipt;
     }
 }

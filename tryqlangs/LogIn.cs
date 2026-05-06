@@ -120,7 +120,7 @@ namespace tryqlangs
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            
+
             Register registerForm = new Register();
             registerForm.Show();
             this.Hide();

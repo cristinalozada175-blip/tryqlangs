@@ -75,12 +75,7 @@ JOIN roomstbl rm ON r.room_id = rm.room_id";
         }
 
 
-        private void btnMyQrCode_Click(object sender, EventArgs e)
-        {
-            MyQrCode myQrCodeForm = new MyQrCode();
-            myQrCodeForm.Show();
-            this.Hide();
-        }
+        
 
         private void btnViewQrCode_Click(object sender, EventArgs e)
         {
@@ -129,7 +124,12 @@ JOIN roomstbl rm ON r.room_id = rm.room_id";
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             this.Refresh();
-             LoadReservations();
+            LoadReservations();
+        }
+
+        private void btnViewQrCode_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

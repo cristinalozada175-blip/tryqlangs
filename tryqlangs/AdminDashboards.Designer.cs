@@ -37,6 +37,8 @@
             btnReports = new Button();
             btnPayments = new Button();
             btnViewDetails = new Button();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // btnRooms
@@ -144,6 +146,15 @@
             btnViewDetails.Text = "View Details";
             btnViewDetails.UseVisualStyleBackColor = false;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(256, 240);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(691, 228);
+            dataGridView1.TabIndex = 23;
+            // 
             // AdminDashboards
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -151,6 +162,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(dataGridView1);
             Controls.Add(btnViewDetails);
             Controls.Add(btnPayments);
             Controls.Add(btnReports);
@@ -162,6 +174,7 @@
             Name = "AdminDashboards";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminDashboards";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -175,5 +188,6 @@
         private Button btnReports;
         private Button btnPayments;
         private Button btnViewDetails;
+        private DataGridView dataGridView1;
     }
 }

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboard));
             btnProfile = new Button();
             btnBookRoom = new Button();
-            btnMyQrCode = new Button();
             btnMyReservation = new Button();
             btnLogOut = new Button();
             btnVewDetails = new Button();
@@ -69,20 +68,6 @@
             btnBookRoom.UseVisualStyleBackColor = false;
             btnBookRoom.Click += btnBookRoom_Click;
             // 
-            // btnMyQrCode
-            // 
-            btnMyQrCode.BackColor = Color.Transparent;
-            btnMyQrCode.FlatAppearance.BorderSize = 0;
-            btnMyQrCode.FlatStyle = FlatStyle.Flat;
-            btnMyQrCode.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyQrCode.ForeColor = Color.White;
-            btnMyQrCode.Location = new Point(12, 298);
-            btnMyQrCode.Name = "btnMyQrCode";
-            btnMyQrCode.Size = new Size(190, 37);
-            btnMyQrCode.TabIndex = 7;
-            btnMyQrCode.UseVisualStyleBackColor = false;
-            btnMyQrCode.Click += btnMyQrCode_Click;
-            // 
             // btnMyReservation
             // 
             btnMyReservation.BackColor = Color.Transparent;
@@ -90,7 +75,7 @@
             btnMyReservation.FlatStyle = FlatStyle.Flat;
             btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMyReservation.ForeColor = Color.White;
-            btnMyReservation.Location = new Point(12, 347);
+            btnMyReservation.Location = new Point(12, 298);
             btnMyReservation.Name = "btnMyReservation";
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 8;
@@ -148,6 +133,7 @@
             btnViewQrCode.TabIndex = 12;
             btnViewQrCode.Text = "View Qr Code";
             btnViewQrCode.UseVisualStyleBackColor = false;
+            btnViewQrCode.Click += btnViewQrCode_Click_1;
             // 
             // btnRefresh
             // 
@@ -177,7 +163,6 @@
             Controls.Add(btnVewDetails);
             Controls.Add(btnLogOut);
             Controls.Add(btnMyReservation);
-            Controls.Add(btnMyQrCode);
             Controls.Add(btnBookRoom);
             Controls.Add(btnProfile);
             Name = "UserDashboard";
@@ -192,7 +177,6 @@
 
         private Button btnProfile;
         private Button btnBookRoom;
-        private Button btnMyQrCode;
         private Button btnMyReservation;
         private Button btnLogOut;
         private Button btnVewDetails;
