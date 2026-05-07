@@ -28,5 +28,10 @@ namespace tryqlangs
                 db.Close();
             }
         }
+
+        private void btnViewQrCode_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

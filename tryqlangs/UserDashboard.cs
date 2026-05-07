@@ -34,12 +34,12 @@ namespace tryqlangs
 
                 string query = @"
                 SELECT r.reservation_id,
-       rm.room_number,
-       r.check_in,
-       r.check_out,
-       r.status
-FROM reservationstbl r
-JOIN roomstbl rm ON r.room_id = rm.room_id";
+                rm.room_number,
+                r.check_in,
+                r.check_out,
+                r.status
+                FROM reservationstbl r
+            JOIN roomstbl rm ON r.room_id = rm.room_id";
 
                 MySql.Data.MySqlClient.MySqlCommand cmd =
                     new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
@@ -124,9 +124,6 @@ JOIN roomstbl rm ON r.room_id = rm.room_id";
 
         
 
-        private void btnVewDetails_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

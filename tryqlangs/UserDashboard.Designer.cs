@@ -33,7 +33,6 @@
             btnBookRoom = new Button();
             btnMyReservation = new Button();
             btnLogOut = new Button();
-            btnVewDetails = new Button();
             dgvRecentReservation = new DataGridView();
             btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).BeginInit();
@@ -95,21 +94,6 @@
             btnLogOut.UseVisualStyleBackColor = false;
             btnLogOut.Click += btnLogOut_Click;
             // 
-            // btnVewDetails
-            // 
-            btnVewDetails.BackColor = Color.Transparent;
-            btnVewDetails.FlatAppearance.BorderSize = 0;
-            btnVewDetails.FlatStyle = FlatStyle.Flat;
-            btnVewDetails.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
-            btnVewDetails.ForeColor = Color.White;
-            btnVewDetails.Location = new Point(509, 477);
-            btnVewDetails.Name = "btnVewDetails";
-            btnVewDetails.Size = new Size(190, 30);
-            btnVewDetails.TabIndex = 10;
-            btnVewDetails.Text = "View Details";
-            btnVewDetails.UseVisualStyleBackColor = false;
-            btnVewDetails.Click += btnVewDetails_Click;
-            // 
             // dgvRecentReservation
             // 
             dgvRecentReservation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -143,7 +127,6 @@
             ClientSize = new Size(997, 540);
             Controls.Add(btnRefresh);
             Controls.Add(dgvRecentReservation);
-            Controls.Add(btnVewDetails);
             Controls.Add(btnLogOut);
             Controls.Add(btnMyReservation);
             Controls.Add(btnBookRoom);
@@ -162,7 +145,6 @@
         private Button btnBookRoom;
         private Button btnMyReservation;
         private Button btnLogOut;
-        private Button btnVewDetails;
         private DataGridView dgvRecentReservation;
         private Button btnRefresh;
     }
