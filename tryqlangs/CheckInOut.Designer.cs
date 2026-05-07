@@ -29,68 +29,77 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInOut));
-            btnBookRoom = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnUsers = new Button();
+            btnRoomStatus = new Button();
+            btnReservations = new Button();
+            btnCheckInOut = new Button();
             button4 = new Button();
             btnVewDetails = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            textBox1 = new TextBox();
+            btnCheckIn = new Button();
+            btnCheckOut = new Button();
+            txtGuestName = new TextBox();
+            txtContactNumber = new TextBox();
+            txtStatus = new TextBox();
+            txtNights = new TextBox();
+            txtRoomNumber = new TextBox();
+            txtEmail = new TextBox();
+            txtRoomType = new TextBox();
+            txtReservationId = new TextBox();
+            dtpCheckIn = new DateTimePicker();
+            dtpCheckOut = new DateTimePicker();
             SuspendLayout();
             // 
-            // btnBookRoom
+            // btnUsers
             // 
-            btnBookRoom.BackColor = Color.Transparent;
-            btnBookRoom.FlatAppearance.BorderSize = 0;
-            btnBookRoom.FlatStyle = FlatStyle.Flat;
-            btnBookRoom.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBookRoom.ForeColor = Color.White;
-            btnBookRoom.Location = new Point(19, 205);
-            btnBookRoom.Name = "btnBookRoom";
-            btnBookRoom.Size = new Size(190, 37);
-            btnBookRoom.TabIndex = 7;
-            btnBookRoom.UseVisualStyleBackColor = false;
+            btnUsers.BackColor = Color.Transparent;
+            btnUsers.FlatAppearance.BorderSize = 0;
+            btnUsers.FlatStyle = FlatStyle.Flat;
+            btnUsers.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUsers.ForeColor = Color.White;
+            btnUsers.Location = new Point(19, 205);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(190, 37);
+            btnUsers.TabIndex = 7;
+            btnUsers.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnRoomStatus
             // 
-            button1.BackColor = Color.Transparent;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(19, 251);
-            button1.Name = "button1";
-            button1.Size = new Size(190, 37);
-            button1.TabIndex = 8;
-            button1.UseVisualStyleBackColor = false;
+            btnRoomStatus.BackColor = Color.Transparent;
+            btnRoomStatus.FlatAppearance.BorderSize = 0;
+            btnRoomStatus.FlatStyle = FlatStyle.Flat;
+            btnRoomStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRoomStatus.ForeColor = Color.White;
+            btnRoomStatus.Location = new Point(19, 251);
+            btnRoomStatus.Name = "btnRoomStatus";
+            btnRoomStatus.Size = new Size(190, 37);
+            btnRoomStatus.TabIndex = 8;
+            btnRoomStatus.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnReservations
             // 
-            button2.BackColor = Color.Transparent;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(19, 300);
-            button2.Name = "button2";
-            button2.Size = new Size(190, 37);
-            button2.TabIndex = 9;
-            button2.UseVisualStyleBackColor = false;
+            btnReservations.BackColor = Color.Transparent;
+            btnReservations.FlatAppearance.BorderSize = 0;
+            btnReservations.FlatStyle = FlatStyle.Flat;
+            btnReservations.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReservations.ForeColor = Color.White;
+            btnReservations.Location = new Point(19, 300);
+            btnReservations.Name = "btnReservations";
+            btnReservations.Size = new Size(190, 37);
+            btnReservations.TabIndex = 9;
+            btnReservations.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnCheckInOut
             // 
-            button3.BackColor = Color.Transparent;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(15, 351);
-            button3.Name = "button3";
-            button3.Size = new Size(190, 54);
-            button3.TabIndex = 10;
-            button3.UseVisualStyleBackColor = false;
+            btnCheckInOut.BackColor = Color.Transparent;
+            btnCheckInOut.FlatAppearance.BorderSize = 0;
+            btnCheckInOut.FlatStyle = FlatStyle.Flat;
+            btnCheckInOut.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCheckInOut.ForeColor = Color.White;
+            btnCheckInOut.Location = new Point(15, 351);
+            btnCheckInOut.Name = "btnCheckInOut";
+            btnCheckInOut.Size = new Size(190, 54);
+            btnCheckInOut.TabIndex = 10;
+            btnCheckInOut.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
@@ -119,41 +128,113 @@
             btnVewDetails.Text = "View Details";
             btnVewDetails.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnCheckIn
             // 
-            button5.BackColor = Color.Transparent;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
-            button5.ForeColor = Color.White;
-            button5.Location = new Point(509, 470);
-            button5.Name = "button5";
-            button5.Size = new Size(190, 30);
-            button5.TabIndex = 13;
-            button5.Text = "View Details";
-            button5.UseVisualStyleBackColor = false;
+            btnCheckIn.BackColor = Color.Transparent;
+            btnCheckIn.FlatAppearance.BorderSize = 0;
+            btnCheckIn.FlatStyle = FlatStyle.Flat;
+            btnCheckIn.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
+            btnCheckIn.ForeColor = Color.White;
+            btnCheckIn.Location = new Point(509, 470);
+            btnCheckIn.Name = "btnCheckIn";
+            btnCheckIn.Size = new Size(190, 30);
+            btnCheckIn.TabIndex = 13;
+            btnCheckIn.Text = "➜] Check-In";
+            btnCheckIn.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnCheckOut
             // 
-            button6.BackColor = Color.Transparent;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(768, 469);
-            button6.Name = "button6";
-            button6.Size = new Size(190, 30);
-            button6.TabIndex = 14;
-            button6.Text = "View Details";
-            button6.UseVisualStyleBackColor = false;
+            btnCheckOut.BackColor = Color.Transparent;
+            btnCheckOut.FlatAppearance.BorderSize = 0;
+            btnCheckOut.FlatStyle = FlatStyle.Flat;
+            btnCheckOut.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
+            btnCheckOut.ForeColor = Color.White;
+            btnCheckOut.Location = new Point(768, 469);
+            btnCheckOut.Name = "btnCheckOut";
+            btnCheckOut.Size = new Size(190, 30);
+            btnCheckOut.TabIndex = 14;
+            btnCheckOut.Text = "➜] Check-Out";
+            btnCheckOut.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtGuestName
             // 
-            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(497, 137);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(214, 30);
-            textBox1.TabIndex = 15;
+            txtGuestName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtGuestName.Location = new Point(494, 137);
+            txtGuestName.Name = "txtGuestName";
+            txtGuestName.Size = new Size(217, 30);
+            txtGuestName.TabIndex = 15;
+            // 
+            // txtContactNumber
+            // 
+            txtContactNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtContactNumber.Location = new Point(494, 203);
+            txtContactNumber.Name = "txtContactNumber";
+            txtContactNumber.Size = new Size(217, 30);
+            txtContactNumber.TabIndex = 16;
+            // 
+            // txtStatus
+            // 
+            txtStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtStatus.Location = new Point(754, 336);
+            txtStatus.Name = "txtStatus";
+            txtStatus.Size = new Size(217, 30);
+            txtStatus.TabIndex = 20;
+            // 
+            // txtNights
+            // 
+            txtNights.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNights.Location = new Point(754, 270);
+            txtNights.Name = "txtNights";
+            txtNights.Size = new Size(217, 30);
+            txtNights.TabIndex = 19;
+            // 
+            // txtRoomNumber
+            // 
+            txtRoomNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRoomNumber.Location = new Point(494, 336);
+            txtRoomNumber.Name = "txtRoomNumber";
+            txtRoomNumber.Size = new Size(217, 30);
+            txtRoomNumber.TabIndex = 22;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtEmail.Location = new Point(494, 270);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(217, 30);
+            txtEmail.TabIndex = 21;
+            // 
+            // txtRoomType
+            // 
+            txtRoomType.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRoomType.Location = new Point(494, 400);
+            txtRoomType.Name = "txtRoomType";
+            txtRoomType.Size = new Size(217, 30);
+            txtRoomType.TabIndex = 23;
+            // 
+            // txtReservationId
+            // 
+            txtReservationId.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtReservationId.Location = new Point(230, 137);
+            txtReservationId.Name = "txtReservationId";
+            txtReservationId.Size = new Size(223, 30);
+            txtReservationId.TabIndex = 24;
+            // 
+            // dtpCheckIn
+            // 
+            dtpCheckIn.CalendarFont = new Font("Segoe UI", 14F);
+            dtpCheckIn.Location = new Point(754, 138);
+            dtpCheckIn.Name = "dtpCheckIn";
+            dtpCheckIn.Size = new Size(217, 27);
+            dtpCheckIn.TabIndex = 25;
+            // 
+            // dtpCheckOut
+            // 
+            dtpCheckOut.CalendarFont = new Font("Segoe UI", 14F);
+            dtpCheckOut.Location = new Point(755, 204);
+            dtpCheckOut.Name = "dtpCheckOut";
+            dtpCheckOut.Size = new Size(217, 27);
+            dtpCheckOut.TabIndex = 26;
             // 
             // CheckInOut
             // 
@@ -162,15 +243,24 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
-            Controls.Add(textBox1);
-            Controls.Add(button6);
-            Controls.Add(button5);
+            Controls.Add(dtpCheckOut);
+            Controls.Add(dtpCheckIn);
+            Controls.Add(txtReservationId);
+            Controls.Add(txtRoomType);
+            Controls.Add(txtRoomNumber);
+            Controls.Add(txtEmail);
+            Controls.Add(txtStatus);
+            Controls.Add(txtNights);
+            Controls.Add(txtContactNumber);
+            Controls.Add(txtGuestName);
+            Controls.Add(btnCheckOut);
+            Controls.Add(btnCheckIn);
             Controls.Add(btnVewDetails);
             Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(btnBookRoom);
+            Controls.Add(btnCheckInOut);
+            Controls.Add(btnReservations);
+            Controls.Add(btnRoomStatus);
+            Controls.Add(btnUsers);
             Name = "CheckInOut";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CheckInOut";
@@ -180,14 +270,23 @@
 
         #endregion
 
-        private Button btnBookRoom;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnUsers;
+        private Button btnRoomStatus;
+        private Button btnReservations;
+        private Button btnCheckInOut;
         private Button button4;
         private Button btnVewDetails;
-        private Button button5;
-        private Button button6;
-        private TextBox textBox1;
+        private Button btnCheckIn;
+        private Button btnCheckOut;
+        private TextBox txtGuestName;
+        private TextBox txtContactNumber;
+        private TextBox txtStatus;
+        private TextBox txtNights;
+        private TextBox txtRoomNumber;
+        private TextBox txtEmail;
+        private TextBox txtRoomType;
+        private TextBox txtReservationId;
+        private DateTimePicker dtpCheckIn;
+        private DateTimePicker dtpCheckOut;
     }
 }
