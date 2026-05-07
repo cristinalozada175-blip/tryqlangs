@@ -34,14 +34,13 @@
             txtTotalAmount = new TextBox();
             btnLogOut = new Button();
             btnMyReservation = new Button();
-            btnMyQrCode = new Button();
             btnBookRoom = new Button();
             btnProfile = new Button();
             dtpCheckInDate = new DateTimePicker();
             dtpCheckOutDate = new DateTimePicker();
             cmbRoomType = new ComboBox();
             btnBookNow = new Button();
-            btnReceipt = new Button();
+            btnSendReceipt = new Button();
             SuspendLayout();
             // 
             // btnCalculate
@@ -98,26 +97,12 @@
             btnMyReservation.FlatStyle = FlatStyle.Flat;
             btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMyReservation.ForeColor = Color.White;
-            btnMyReservation.Location = new Point(13, 346);
+            btnMyReservation.Location = new Point(13, 301);
             btnMyReservation.Name = "btnMyReservation";
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 17;
             btnMyReservation.UseVisualStyleBackColor = false;
             btnMyReservation.Click += btnMyReservation_Click;
-            // 
-            // btnMyQrCode
-            // 
-            btnMyQrCode.BackColor = Color.Transparent;
-            btnMyQrCode.FlatAppearance.BorderSize = 0;
-            btnMyQrCode.FlatStyle = FlatStyle.Flat;
-            btnMyQrCode.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyQrCode.ForeColor = Color.White;
-            btnMyQrCode.Location = new Point(13, 297);
-            btnMyQrCode.Name = "btnMyQrCode";
-            btnMyQrCode.Size = new Size(190, 37);
-            btnMyQrCode.TabIndex = 16;
-            btnMyQrCode.UseVisualStyleBackColor = false;
-            btnMyQrCode.Click += btnMyQrCode_Click;
             // 
             // btnBookRoom
             // 
@@ -126,7 +111,7 @@
             btnBookRoom.FlatStyle = FlatStyle.Flat;
             btnBookRoom.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBookRoom.ForeColor = Color.White;
-            btnBookRoom.Location = new Point(13, 248);
+            btnBookRoom.Location = new Point(13, 246);
             btnBookRoom.Name = "btnBookRoom";
             btnBookRoom.Size = new Size(190, 37);
             btnBookRoom.TabIndex = 15;
@@ -186,19 +171,20 @@
             btnBookNow.UseVisualStyleBackColor = false;
             btnBookNow.Click += btnBookNow_Click;
             // 
-            // btnReceipt
+            // btnSendReceipt
             // 
-            btnReceipt.BackColor = Color.Transparent;
-            btnReceipt.FlatAppearance.BorderSize = 0;
-            btnReceipt.FlatStyle = FlatStyle.Flat;
-            btnReceipt.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReceipt.ForeColor = Color.White;
-            btnReceipt.Location = new Point(349, 453);
-            btnReceipt.Name = "btnReceipt";
-            btnReceipt.Size = new Size(166, 36);
-            btnReceipt.TabIndex = 23;
-            btnReceipt.Text = "Receipt";
-            btnReceipt.UseVisualStyleBackColor = false;
+            btnSendReceipt.BackColor = Color.Transparent;
+            btnSendReceipt.FlatAppearance.BorderSize = 0;
+            btnSendReceipt.FlatStyle = FlatStyle.Flat;
+            btnSendReceipt.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSendReceipt.ForeColor = Color.White;
+            btnSendReceipt.Location = new Point(349, 453);
+            btnSendReceipt.Name = "btnSendReceipt";
+            btnSendReceipt.Size = new Size(166, 36);
+            btnSendReceipt.TabIndex = 23;
+            btnSendReceipt.Text = "Send Receipt";
+            btnSendReceipt.UseVisualStyleBackColor = false;
+            btnSendReceipt.Click += btnReceipt_Click;
             // 
             // BookARoom
             // 
@@ -208,14 +194,13 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             CausesValidation = false;
             ClientSize = new Size(997, 540);
-            Controls.Add(btnReceipt);
+            Controls.Add(btnSendReceipt);
             Controls.Add(btnBookNow);
             Controls.Add(cmbRoomType);
             Controls.Add(dtpCheckOutDate);
             Controls.Add(dtpCheckInDate);
             Controls.Add(btnLogOut);
             Controls.Add(btnMyReservation);
-            Controls.Add(btnMyQrCode);
             Controls.Add(btnBookRoom);
             Controls.Add(btnProfile);
             Controls.Add(txtTotalAmount);
@@ -236,13 +221,12 @@
         private TextBox txtTotalAmount;
         private Button btnLogOut;
         private Button btnMyReservation;
-        private Button btnMyQrCode;
         private Button btnBookRoom;
         private Button btnProfile;
         private DateTimePicker dtpCheckInDate;
         private DateTimePicker dtpCheckOutDate;
         private ComboBox cmbRoomType;
         private Button btnBookNow;
-        private Button btnReceipt;
+        private Button btnSendReceipt;
     }
 }

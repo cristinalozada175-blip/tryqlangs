@@ -82,7 +82,7 @@ namespace tryqlangs
 
             CalculateTotalPrice(); // optional (UI update only)
         }
-       
+
 
         private void dtpCheckInDate_ValueChanged(object sender, EventArgs e)
         {
@@ -232,12 +232,7 @@ namespace tryqlangs
             this.Hide();
         }
 
-        private void btnMyQrCode_Click(object sender, EventArgs e)
-        {
-            MyQrCode myQrCode = new MyQrCode();
-            myQrCode.Show();
-            this.Hide();
-        }
+        
 
         private void btnMyReservation_Click(object sender, EventArgs e)
         {
@@ -262,6 +257,9 @@ namespace tryqlangs
             }
         }
 
-        
+        private void btnReceipt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
