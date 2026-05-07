@@ -108,6 +108,7 @@
             btnVewDetails.TabIndex = 10;
             btnVewDetails.Text = "View Details";
             btnVewDetails.UseVisualStyleBackColor = false;
+            btnVewDetails.Click += btnVewDetails_Click;
             // 
             // dgvRecentReservation
             // 

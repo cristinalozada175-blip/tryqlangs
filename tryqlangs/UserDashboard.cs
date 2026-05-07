@@ -75,9 +75,9 @@ JOIN roomstbl rm ON r.room_id = rm.room_id";
         }
 
 
-        
 
-        
+
+
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
@@ -122,7 +122,9 @@ JOIN roomstbl rm ON r.room_id = rm.room_id";
             LoadReservations();
         }
 
-        private void btnViewQrCode_Click_1(object sender, EventArgs e)
+        
+
+        private void btnVewDetails_Click(object sender, EventArgs e)
         {
 
         }
