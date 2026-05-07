@@ -16,5 +16,17 @@ namespace tryqlangs
         {
             InitializeComponent();
         }
+
+        private void StaffDashboards_Load(object sender, EventArgs e)
+        {
+            DbConnect db = new DbConnect();
+
+            try
+            {
+                db.Open();
+                db.Connection();
+                db.Close();
+            }
+        }
     }
 }
