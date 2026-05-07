@@ -38,6 +38,7 @@
             btnPayments = new Button();
             btnViewDetails = new Button();
             dataGridView1 = new DataGridView();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -155,6 +156,16 @@
             dataGridView1.Size = new Size(691, 228);
             dataGridView1.TabIndex = 23;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(456, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(259, 38);
+            label1.TabIndex = 24;
+            label1.Text = "TRIAL LANG BAKS";
+            // 
             // AdminDashboards
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -162,6 +173,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(btnViewDetails);
             Controls.Add(btnPayments);
@@ -176,6 +188,7 @@
             Text = "AdminDashboards";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -189,5 +202,6 @@
         private Button btnPayments;
         private Button btnViewDetails;
         private DataGridView dataGridView1;
+        private Label label1;
     }
 }
