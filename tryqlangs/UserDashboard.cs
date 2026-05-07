@@ -77,12 +77,7 @@ JOIN roomstbl rm ON r.room_id = rm.room_id";
 
         
 
-        private void btnViewQrCode_Click(object sender, EventArgs e)
-        {
-            MyQrCode myQrCodeForm = new MyQrCode();
-            myQrCodeForm.Show();
-            this.Hide();
-        }
+        
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
