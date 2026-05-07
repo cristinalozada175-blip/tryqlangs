@@ -37,6 +37,7 @@
             btnVewDetails = new Button();
             button5 = new Button();
             button6 = new Button();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // btnBookRoom
@@ -146,6 +147,14 @@
             button6.Text = "View Details";
             button6.UseVisualStyleBackColor = false;
             // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(497, 137);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(214, 30);
+            textBox1.TabIndex = 15;
+            // 
             // CheckInOut
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -153,6 +162,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(textBox1);
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(btnVewDetails);
@@ -165,6 +175,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CheckInOut";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -177,5 +188,6 @@
         private Button btnVewDetails;
         private Button button5;
         private Button button6;
+        private TextBox textBox1;
     }
 }

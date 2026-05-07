@@ -56,7 +56,7 @@
             btnMyReservation.FlatStyle = FlatStyle.Flat;
             btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMyReservation.ForeColor = Color.White;
-            btnMyReservation.Location = new Point(14, 299);
+            btnMyReservation.Location = new Point(13, 299);
             btnMyReservation.Name = "btnMyReservation";
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 22;
