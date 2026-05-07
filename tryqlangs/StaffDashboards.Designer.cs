@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDashboards));
             btnLogOut = new Button();
-            btnMyQrCode = new Button();
-            btnBookRoom = new Button();
-            btnReservation = new Button();
-            btnProfile = new Button();
+            btnRoomStatus = new Button();
+            btnUsers = new Button();
+            btnCheckInCheckOut = new Button();
             btnViewQrCode = new Button();
+            dgvRecentReservation = new DataGridView();
+            btnReservation = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).BeginInit();
             SuspendLayout();
             // 
             // btnLogOut
@@ -50,57 +52,44 @@
             btnLogOut.TabIndex = 14;
             btnLogOut.UseVisualStyleBackColor = false;
             // 
-            // btnMyQrCode
+            // btnRoomStatus
             // 
-            btnMyQrCode.BackColor = Color.Transparent;
-            btnMyQrCode.FlatAppearance.BorderSize = 0;
-            btnMyQrCode.FlatStyle = FlatStyle.Flat;
-            btnMyQrCode.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyQrCode.ForeColor = Color.White;
-            btnMyQrCode.Location = new Point(12, 351);
-            btnMyQrCode.Name = "btnMyQrCode";
-            btnMyQrCode.Size = new Size(190, 37);
-            btnMyQrCode.TabIndex = 13;
-            btnMyQrCode.UseVisualStyleBackColor = false;
+            btnRoomStatus.BackColor = Color.Transparent;
+            btnRoomStatus.FlatAppearance.BorderSize = 0;
+            btnRoomStatus.FlatStyle = FlatStyle.Flat;
+            btnRoomStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRoomStatus.ForeColor = Color.White;
+            btnRoomStatus.Location = new Point(12, 253);
+            btnRoomStatus.Name = "btnRoomStatus";
+            btnRoomStatus.Size = new Size(190, 37);
+            btnRoomStatus.TabIndex = 13;
+            btnRoomStatus.UseVisualStyleBackColor = false;
             // 
-            // btnBookRoom
+            // btnUsers
             // 
-            btnBookRoom.BackColor = Color.Transparent;
-            btnBookRoom.FlatAppearance.BorderSize = 0;
-            btnBookRoom.FlatStyle = FlatStyle.Flat;
-            btnBookRoom.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBookRoom.ForeColor = Color.White;
-            btnBookRoom.Location = new Point(12, 302);
-            btnBookRoom.Name = "btnBookRoom";
-            btnBookRoom.Size = new Size(190, 37);
-            btnBookRoom.TabIndex = 12;
-            btnBookRoom.UseVisualStyleBackColor = false;
+            btnUsers.BackColor = Color.Transparent;
+            btnUsers.FlatAppearance.BorderSize = 0;
+            btnUsers.FlatStyle = FlatStyle.Flat;
+            btnUsers.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUsers.ForeColor = Color.White;
+            btnUsers.Location = new Point(12, 205);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(190, 37);
+            btnUsers.TabIndex = 11;
+            btnUsers.UseVisualStyleBackColor = false;
             // 
-            // btnReservation
+            // btnCheckInCheckOut
             // 
-            btnReservation.BackColor = Color.Transparent;
-            btnReservation.FlatAppearance.BorderSize = 0;
-            btnReservation.FlatStyle = FlatStyle.Flat;
-            btnReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReservation.ForeColor = Color.White;
-            btnReservation.Location = new Point(12, 253);
-            btnReservation.Name = "btnReservation";
-            btnReservation.Size = new Size(190, 37);
-            btnReservation.TabIndex = 11;
-            btnReservation.UseVisualStyleBackColor = false;
-            // 
-            // btnProfile
-            // 
-            btnProfile.BackColor = Color.Transparent;
-            btnProfile.FlatAppearance.BorderSize = 0;
-            btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnProfile.ForeColor = Color.White;
-            btnProfile.Location = new Point(12, 199);
-            btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(190, 37);
-            btnProfile.TabIndex = 10;
-            btnProfile.UseVisualStyleBackColor = false;
+            btnCheckInCheckOut.BackColor = Color.Transparent;
+            btnCheckInCheckOut.FlatAppearance.BorderSize = 0;
+            btnCheckInCheckOut.FlatStyle = FlatStyle.Flat;
+            btnCheckInCheckOut.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCheckInCheckOut.ForeColor = Color.White;
+            btnCheckInCheckOut.Location = new Point(12, 353);
+            btnCheckInCheckOut.Name = "btnCheckInCheckOut";
+            btnCheckInCheckOut.Size = new Size(190, 51);
+            btnCheckInCheckOut.TabIndex = 10;
+            btnCheckInCheckOut.UseVisualStyleBackColor = false;
             // 
             // btnViewQrCode
             // 
@@ -116,6 +105,28 @@
             btnViewQrCode.Text = "View Details";
             btnViewQrCode.UseVisualStyleBackColor = false;
             // 
+            // dgvRecentReservation
+            // 
+            dgvRecentReservation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRecentReservation.Location = new Point(248, 243);
+            dgvRecentReservation.Name = "dgvRecentReservation";
+            dgvRecentReservation.RowHeadersWidth = 51;
+            dgvRecentReservation.Size = new Size(695, 225);
+            dgvRecentReservation.TabIndex = 24;
+            // 
+            // btnReservation
+            // 
+            btnReservation.BackColor = Color.Transparent;
+            btnReservation.FlatAppearance.BorderSize = 0;
+            btnReservation.FlatStyle = FlatStyle.Flat;
+            btnReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReservation.ForeColor = Color.White;
+            btnReservation.Location = new Point(8, 298);
+            btnReservation.Name = "btnReservation";
+            btnReservation.Size = new Size(190, 37);
+            btnReservation.TabIndex = 25;
+            btnReservation.UseVisualStyleBackColor = false;
+            // 
             // StaffDashboards
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -123,25 +134,28 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnReservation);
+            Controls.Add(dgvRecentReservation);
             Controls.Add(btnViewQrCode);
             Controls.Add(btnLogOut);
-            Controls.Add(btnMyQrCode);
-            Controls.Add(btnBookRoom);
-            Controls.Add(btnReservation);
-            Controls.Add(btnProfile);
+            Controls.Add(btnRoomStatus);
+            Controls.Add(btnUsers);
+            Controls.Add(btnCheckInCheckOut);
             Name = "StaffDashboards";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StaffDashboards";
+            ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btnLogOut;
-        private Button btnMyQrCode;
-        private Button btnBookRoom;
-        private Button btnReservation;
-        private Button btnProfile;
+        private Button btnRoomStatus;
+        private Button btnUsers;
+        private Button btnCheckInCheckOut;
         private Button btnViewQrCode;
+        private DataGridView dgvRecentReservation;
+        private Button btnReservation;
     }
 }

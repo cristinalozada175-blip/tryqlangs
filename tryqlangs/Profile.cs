@@ -19,20 +19,7 @@ namespace tryqlangs
             InitializeComponent();
         }
 
-        private void chbShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chbShowPassword.Checked)
-            {
-
-                txtEnterPassword.PasswordChar = '\0';
-                txtEnterPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                txtEnterPassword.PasswordChar = '*';
-                txtEnterPassword.UseSystemPasswordChar = true;
-            }
-        }
+        
 
 
 
