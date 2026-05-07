@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInOut));
             btnUsers = new Button();
             btnRoomStatus = new Button();
-            btnReservations = new Button();
+            btnReservation = new Button();
             btnCheckInOut = new Button();
             button4 = new Button();
             btnVewDetails = new Button();
@@ -75,18 +75,18 @@
             btnRoomStatus.TabIndex = 8;
             btnRoomStatus.UseVisualStyleBackColor = false;
             // 
-            // btnReservations
+            // btnReservation
             // 
-            btnReservations.BackColor = Color.Transparent;
-            btnReservations.FlatAppearance.BorderSize = 0;
-            btnReservations.FlatStyle = FlatStyle.Flat;
-            btnReservations.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReservations.ForeColor = Color.White;
-            btnReservations.Location = new Point(19, 300);
-            btnReservations.Name = "btnReservations";
-            btnReservations.Size = new Size(190, 37);
-            btnReservations.TabIndex = 9;
-            btnReservations.UseVisualStyleBackColor = false;
+            btnReservation.BackColor = Color.Transparent;
+            btnReservation.FlatAppearance.BorderSize = 0;
+            btnReservation.FlatStyle = FlatStyle.Flat;
+            btnReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReservation.ForeColor = Color.White;
+            btnReservation.Location = new Point(19, 300);
+            btnReservation.Name = "btnReservation";
+            btnReservation.Size = new Size(190, 37);
+            btnReservation.TabIndex = 9;
+            btnReservation.UseVisualStyleBackColor = false;
             // 
             // btnCheckInOut
             // 
@@ -258,7 +258,7 @@
             Controls.Add(btnVewDetails);
             Controls.Add(button4);
             Controls.Add(btnCheckInOut);
-            Controls.Add(btnReservations);
+            Controls.Add(btnReservation);
             Controls.Add(btnRoomStatus);
             Controls.Add(btnUsers);
             Name = "CheckInOut";
@@ -272,7 +272,7 @@
 
         private Button btnUsers;
         private Button btnRoomStatus;
-        private Button btnReservations;
+        private Button btnReservation;
         private Button btnCheckInOut;
         private Button button4;
         private Button btnVewDetails;
