@@ -33,7 +33,6 @@
             txtNumberOfGuest = new TextBox();
             txtTotalAmount = new TextBox();
             btnLogOut = new Button();
-            btnMyReservation = new Button();
             btnBookRoom = new Button();
             btnProfile = new Button();
             dtpCheckInDate = new DateTimePicker();
@@ -89,20 +88,6 @@
             btnLogOut.TabIndex = 18;
             btnLogOut.UseVisualStyleBackColor = false;
             btnLogOut.Click += btnLogOut_Click;
-            // 
-            // btnMyReservation
-            // 
-            btnMyReservation.BackColor = Color.Transparent;
-            btnMyReservation.FlatAppearance.BorderSize = 0;
-            btnMyReservation.FlatStyle = FlatStyle.Flat;
-            btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyReservation.ForeColor = Color.White;
-            btnMyReservation.Location = new Point(13, 301);
-            btnMyReservation.Name = "btnMyReservation";
-            btnMyReservation.Size = new Size(190, 37);
-            btnMyReservation.TabIndex = 17;
-            btnMyReservation.UseVisualStyleBackColor = false;
-            btnMyReservation.Click += btnMyReservation_Click;
             // 
             // btnBookRoom
             // 
@@ -200,7 +185,6 @@
             Controls.Add(dtpCheckOutDate);
             Controls.Add(dtpCheckInDate);
             Controls.Add(btnLogOut);
-            Controls.Add(btnMyReservation);
             Controls.Add(btnBookRoom);
             Controls.Add(btnProfile);
             Controls.Add(txtTotalAmount);
@@ -220,7 +204,6 @@
         private TextBox txtNumberOfGuest;
         private TextBox txtTotalAmount;
         private Button btnLogOut;
-        private Button btnMyReservation;
         private Button btnBookRoom;
         private Button btnProfile;
         private DateTimePicker dtpCheckInDate;

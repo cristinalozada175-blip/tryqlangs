@@ -1,3 +1,4 @@
+using MySqlX.XDevAPI.Common;
 using System.Text.RegularExpressions;
 using static tryqlangs.DbConnect;
 
@@ -5,9 +6,16 @@ namespace tryqlangs
 {
     public partial class LogIn : Form
     {
+        public static class UserSession
+        {
+            public static int userstblID { get; set; }
+
+        }
+
         public LogIn()
         {
             InitializeComponent();
+
         }
 
         private void LogIn_Load(object sender, EventArgs e)
@@ -21,75 +29,79 @@ namespace tryqlangs
             string password = txtPassword.Text.Trim();
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
-            // Validate email and password fields//
             if (string.IsNullOrEmpty(email))
             {
-
                 MessageBox.Show("Please enter email");
                 return;
             }
 
             if (string.IsNullOrEmpty(password))
             {
-
                 MessageBox.Show("Please enter password");
                 return;
             }
 
-            // Validate email format using regular expression//
             if (!Regex.IsMatch(email, pattern))
             {
                 MessageBox.Show("Invalid email format.");
-            }
-
-            // Check if email and password are empty//
-            if (email == "" | password == "")
-            {
-
-                MessageBox.Show("Please enter email or pasword");
                 return;
             }
 
-            // In your Login button click event
-
             DBConnect dB = new DBConnect();
+
             try
             {
                 dB.Open();
-                string query = "SELECT role FROM userstbl WHERE email = @email AND password = @password";
+
+                // Select BOTH ID and role
+                string query = "SELECT user_id, role FROM userstbl WHERE email = @email AND password = @password";
 
                 using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, dB.Connection))
                 {
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@password", password);
 
-                    string role = cmd.ExecuteScalar()?.ToString();
-
-                    if (!string.IsNullOrEmpty(role))
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        // Redirect based on role
-                        switch (role)
+                        if (reader.Read())
                         {
-                            case "admin":
-                                AdminDashboards adminDash = new AdminDashboards();
-                                adminDash.Show();
-                                this.Hide();
-                                break;
-                            case "staff":
-                                StaffDashboards staffDash = new StaffDashboards();
-                                staffDash.Show();
-                                this.Hide();
-                                break;
-                            case "customer":
-                                UserDashboard userDash = new UserDashboard();
-                                userDash.Show();
-                                this.Hide();
-                                break;
+                            // Save user ID into session
+                            UserSession.userstblID = Convert.ToInt32(reader["user_id"]);
+
+                            // Get role
+                            string role = reader["role"].ToString();
+
+                            // Redirect based on role
+                            switch (role)
+                            {
+                                case "admin":
+                                    AdminDashboards adminDash = new AdminDashboards();
+                                    adminDash.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "staff":
+                                    StaffDashboards staffDash = new StaffDashboards();
+                                    staffDash.Show();
+                                    this.Hide();
+                                    break;
+
+                                case "customer":
+                                    UserDashboard userDash = new UserDashboard();
+                                    userDash.Show();
+                                    this.Hide();
+                                    break;
+                            }
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid email or password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            MessageBox.Show(
+                                "Invalid email or password!",
+                                "Login Failed",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error
+                            );
+                        }
                     }
                 }
             }
@@ -127,5 +139,3 @@ namespace tryqlangs
         }
     }
 }
-
-

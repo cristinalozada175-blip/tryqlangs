@@ -101,5 +101,10 @@ namespace tryqlangs
             loginForm.Show();
             this.Hide();
         }
+        public static class UserSession
+        {
+            public static int userstblID { get; set; }
+
+        }
     }
 }

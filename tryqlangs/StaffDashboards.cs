@@ -19,14 +19,7 @@ namespace tryqlangs
 
         private void StaffDashboards_Load(object sender, EventArgs e)
         {
-            DbConnect db = new DbConnect();
-
-            try
-            {
-                db.Open();
-                db.Connection();
-                db.Close();
-            }
+            
         }
 
         private void btnViewQrCode_Click(object sender, EventArgs e)

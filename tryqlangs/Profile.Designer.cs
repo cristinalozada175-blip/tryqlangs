@@ -30,9 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             btnLogOut = new Button();
-            btnMyReservation = new Button();
             btnBookRoom = new Button();
             btnProfile = new Button();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
             SuspendLayout();
             // 
             // btnLogOut
@@ -48,20 +51,6 @@
             btnLogOut.TabIndex = 23;
             btnLogOut.UseVisualStyleBackColor = false;
             btnLogOut.Click += btnLogOut_Click;
-            // 
-            // btnMyReservation
-            // 
-            btnMyReservation.BackColor = Color.Transparent;
-            btnMyReservation.FlatAppearance.BorderSize = 0;
-            btnMyReservation.FlatStyle = FlatStyle.Flat;
-            btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyReservation.ForeColor = Color.White;
-            btnMyReservation.Location = new Point(13, 299);
-            btnMyReservation.Name = "btnMyReservation";
-            btnMyReservation.Size = new Size(190, 37);
-            btnMyReservation.TabIndex = 22;
-            btnMyReservation.UseVisualStyleBackColor = false;
-            btnMyReservation.Click += btnMyReservation_Click;
             // 
             // btnBookRoom
             // 
@@ -91,6 +80,34 @@
             btnProfile.UseVisualStyleBackColor = false;
             btnProfile.Click += btnProfile_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(651, 225);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(291, 27);
+            textBox1.TabIndex = 24;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(651, 265);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(291, 27);
+            textBox2.TabIndex = 25;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(651, 345);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(291, 27);
+            textBox3.TabIndex = 27;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(651, 305);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(291, 27);
+            textBox4.TabIndex = 26;
+            // 
             // Profile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -98,20 +115,28 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(textBox3);
+            Controls.Add(textBox4);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
             Controls.Add(btnLogOut);
-            Controls.Add(btnMyReservation);
             Controls.Add(btnBookRoom);
             Controls.Add(btnProfile);
             Name = "Profile";
             Text = "Profile";
+            Load += Profile_Load_1;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnLogOut;
-        private Button btnMyReservation;
         private Button btnBookRoom;
         private Button btnProfile;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox textBox4;
     }
 }
