@@ -40,13 +40,15 @@
             txtGuestName = new TextBox();
             txtContactNumber = new TextBox();
             txtStatus = new TextBox();
-            txtNights = new TextBox();
             txtRoomNumber = new TextBox();
             txtEmail = new TextBox();
             txtRoomType = new TextBox();
             txtReservationId = new TextBox();
             dtpCheckIn = new DateTimePicker();
             dtpCheckOut = new DateTimePicker();
+            dataGridView1 = new DataGridView();
+            dtpNights = new DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // btnUsers
@@ -180,14 +182,6 @@
             txtStatus.Size = new Size(217, 30);
             txtStatus.TabIndex = 20;
             // 
-            // txtNights
-            // 
-            txtNights.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNights.Location = new Point(754, 270);
-            txtNights.Name = "txtNights";
-            txtNights.Size = new Size(217, 30);
-            txtNights.TabIndex = 19;
-            // 
             // txtRoomNumber
             // 
             txtRoomNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -236,6 +230,23 @@
             dtpCheckOut.Size = new Size(217, 27);
             dtpCheckOut.TabIndex = 26;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(222, 239);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(239, 270);
+            dataGridView1.TabIndex = 27;
+            // 
+            // dtpNights
+            // 
+            dtpNights.CalendarFont = new Font("Segoe UI", 14F);
+            dtpNights.Location = new Point(755, 270);
+            dtpNights.Name = "dtpNights";
+            dtpNights.Size = new Size(217, 27);
+            dtpNights.TabIndex = 28;
+            // 
             // CheckInOut
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -243,6 +254,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(dtpNights);
+            Controls.Add(dataGridView1);
             Controls.Add(dtpCheckOut);
             Controls.Add(dtpCheckIn);
             Controls.Add(txtReservationId);
@@ -250,7 +263,6 @@
             Controls.Add(txtRoomNumber);
             Controls.Add(txtEmail);
             Controls.Add(txtStatus);
-            Controls.Add(txtNights);
             Controls.Add(txtContactNumber);
             Controls.Add(txtGuestName);
             Controls.Add(btnCheckOut);
@@ -264,6 +276,7 @@
             Name = "CheckInOut";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CheckInOut";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -281,12 +294,13 @@
         private TextBox txtGuestName;
         private TextBox txtContactNumber;
         private TextBox txtStatus;
-        private TextBox txtNights;
         private TextBox txtRoomNumber;
         private TextBox txtEmail;
         private TextBox txtRoomType;
         private TextBox txtReservationId;
         private DateTimePicker dtpCheckIn;
         private DateTimePicker dtpCheckOut;
+        private DataGridView dataGridView1;
+        private DateTimePicker dtpNights;
     }
 }
