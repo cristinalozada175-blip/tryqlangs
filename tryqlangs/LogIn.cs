@@ -6,6 +6,10 @@ namespace tryqlangs
 {
     public partial class LogIn : Form
     {
+        public static class Session
+        {
+            public static int userstblID { get; set; }
+        }
         public static class UserSession
         {
             public static int userstblID { get; set; }

@@ -45,9 +45,7 @@ namespace tryqlangs
 
         private void btnMyReservation_Click(object sender, EventArgs e)
         {
-            UserDashboard userDashboardForm = new UserDashboard();
-            userDashboardForm.Show();
-            this.Hide();
+            
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

@@ -1,6 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Net;
+using System.Net.Mail;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System.Net;
+using System.Net.Mail;
 
 namespace tryqlangs
 {
@@ -19,11 +23,11 @@ namespace tryqlangs
         private void CalculateTotalPrice()
         {
             if (cmbRoomType.Text == "" ||
-        dtpCheckOutDate.Value.Date <= dtpCheckInDate.Value.Date)
+                dtpCheckOutDate.Value.Date <= dtpCheckInDate.Value.Date)
             {
                 txtTotalAmount.Text = "";
                 calculatedTotal = 0;
-                isCalculated = false; // ✅ VERY IMPORTANT
+                isCalculated = false;
                 return;
             }
 
@@ -37,12 +41,13 @@ namespace tryqlangs
                 pricePerNight = 10000;
 
             int nights = (dtpCheckOutDate.Value.Date - dtpCheckInDate.Value.Date).Days;
+
             calculatedTotal = pricePerNight * nights;
 
             txtTotalAmount.Text = calculatedTotal.ToString("F2");
         }
 
-        // ✅ GET room_id FROM DATABASE (NO HARDCODE)
+        // ================= GET ROOM ID =================
         private int GetRoomIdFromDatabase(string roomType)
         {
             int roomId = 0;
@@ -57,19 +62,24 @@ namespace tryqlangs
                 cmd.Parameters.AddWithValue("@type", roomType);
 
                 db.Open();
+
                 object result = cmd.ExecuteScalar();
+
                 db.Close();
 
                 if (result != null)
+                {
                     roomId = Convert.ToInt32(result);
+                }
             }
 
             return roomId;
         }
 
+
         private void cmbRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            isCalculated = false; // ❗ reset
+            isCalculated = false;
 
             if (cmbRoomType.Text == "Standard Room")
                 txtNumberOfGuest.Text = "2";
@@ -80,19 +90,19 @@ namespace tryqlangs
             else
                 txtNumberOfGuest.Text = "";
 
-            CalculateTotalPrice(); // optional (UI update only)
+            CalculateTotalPrice();
         }
 
 
         private void dtpCheckInDate_ValueChanged(object sender, EventArgs e)
         {
-            isCalculated = false; // ❗ reset
+            isCalculated = false;
             CalculateTotalPrice();
         }
 
         private void dtpCheckOutDate_ValueChanged(object sender, EventArgs e)
         {
-            isCalculated = false; // ❗ reset
+            isCalculated = false;
             CalculateTotalPrice();
         }
 
@@ -117,12 +127,14 @@ namespace tryqlangs
                 return;
             }
 
-            // GUEST LIMIT
             int guestLimit = 0;
 
-            if (cmbRoomType.Text == "Standard Room") guestLimit = 2;
-            else if (cmbRoomType.Text == "Suite Room") guestLimit = 4;
-            else if (cmbRoomType.Text == "Deluxe Room") guestLimit = 6;
+            if (cmbRoomType.Text == "Standard Room")
+                guestLimit = 2;
+            else if (cmbRoomType.Text == "Suite Room")
+                guestLimit = 4;
+            else if (cmbRoomType.Text == "Deluxe Room")
+                guestLimit = 6;
 
             int guestCount = Convert.ToInt32(txtNumberOfGuest.Text);
 
@@ -138,9 +150,6 @@ namespace tryqlangs
                 return;
             }
 
-            // CALCULATE PRICE
-
-
             decimal totalPrice = calculatedTotal;
 
             if (totalPrice <= 0)
@@ -149,7 +158,7 @@ namespace tryqlangs
                 return;
             }
 
-            // ✅ GET room_id dynamically
+            // GET ROOM ID
             int roomId = GetRoomIdFromDatabase(cmbRoomType.Text);
 
             if (roomId == 0)
@@ -158,19 +167,18 @@ namespace tryqlangs
                 return;
             }
 
-            // ⚠️ TEMP USER (replace later with logged-in user)
-            int userId = 1;
+            // GET LOGGED-IN USER ID
+            int userId = LogIn.UserSession.userstblID;
 
-            // ================= SAVE TO DATABASE =================
             try
             {
                 DbConnect.DBConnect db = new DbConnect.DBConnect();
                 MySqlConnection con = db.Connection;
 
-                string query = @"INSERT INTO reservationstbl 
-                    (check_in, check_out, status, room_id, user_id, total_amount)
-                    VALUES
-                    (@checkin, @checkout, @status, @roomid, @userid, @total)";
+                string query = @"INSERT INTO reservationstbl
+                (check_in, check_out, status, room_id, user_id, total_amount)
+                VALUES
+                (@checkin, @checkout, @status, @roomid, @userid, @total)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
@@ -181,9 +189,10 @@ namespace tryqlangs
                     cmd.Parameters.AddWithValue("@userid", userId);
                     cmd.Parameters.AddWithValue("@total", totalPrice);
 
-
                     db.Open();
+
                     int rowsAffected = cmd.ExecuteNonQuery();
+
                     db.Close();
 
                     if (rowsAffected > 0)
@@ -195,13 +204,16 @@ namespace tryqlangs
                             MessageBoxIcon.Information
                         );
 
+                        
+                       
+
                         cmbRoomType.SelectedIndex = -1;
                         txtNumberOfGuest.Clear();
                         txtTotalAmount.Clear();
                     }
                     else
                     {
-                        MessageBox.Show("Booking failed. Please try again.");
+                        MessageBox.Show("Booking failed.");
                     }
                 }
             }
@@ -236,9 +248,7 @@ namespace tryqlangs
 
         private void btnMyReservation_Click(object sender, EventArgs e)
         {
-            UserDashboard Userdashboard = new UserDashboard();
-            Userdashboard.Show();
-            this.Hide();
+            
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -259,7 +269,114 @@ namespace tryqlangs
 
         private void btnReceipt_Click(object sender, EventArgs e)
         {
+            DbConnect.DBConnect db = new DbConnect.DBConnect();
+            
+            try
+            {
+                db.Open();
 
+                string userEmail = "";
+                string roomNumber = "";
+                string roomType = "";
+
+                int userId = LogIn.UserSession.userstblID;
+
+                string query = @"
+                SELECT 
+                    userstbl.email,
+                    roomstbl.room_number,
+                    roomstbl.room_type
+                FROM reservationstbl
+                INNER JOIN roomstbl
+                    ON reservationstbl.room_id = roomstbl.room_id
+                INNER JOIN userstbl
+                    ON reservationstbl.user_id = userstbl.user_id
+                WHERE reservationstbl.user_id = @userid
+                ORDER BY reservationstbl.reservation_id DESC
+                LIMIT 1";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@userid", userId);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            userEmail = reader["email"].ToString();
+                            roomNumber = reader["room_number"].ToString();
+                            roomType = reader["room_type"].ToString();
+                        }
+                    }
+                }
+
+                if (userEmail == "")
+                {
+                    MessageBox.Show("No email found.");
+                    return;
+                }
+
+                // SEND EMAIL
+                MailMessage mail = new MailMessage();
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress(
+                    "hotelsystem2007@gmail.com",
+                    "Hotel Booking System"
+                );
+
+                mail.To.Add(userEmail);
+
+                mail.Subject = "Hotel Booking Receipt";
+
+                mail.Body =
+$@"Hello!
+
+Your booking was successful.
+
+===== BOOKING DETAILS =====
+
+Room Number: {roomNumber}
+Room Type: {roomType}
+
+Check-In Date: {dtpCheckInDate.Value.ToShortDateString()}
+Check-Out Date: {dtpCheckOutDate.Value.ToShortDateString()}
+
+Number of Guests: {txtNumberOfGuest.Text}
+
+Total Amount: ₱{txtTotalAmount.Text}
+
+Thank you for booking with us!";
+
+                smtp.Port = 587;
+
+                smtp.Credentials = new NetworkCredential(
+                    "hotelsystem2007@gmail.com",
+                    "uqyhrkakdcmjohph"
+                );
+
+                smtp.EnableSsl = true;
+
+                smtp.Send(mail);
+
+                MessageBox.Show(
+                    "Receipt sent successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Email Error:\n" + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+
+            
         }
 
         
