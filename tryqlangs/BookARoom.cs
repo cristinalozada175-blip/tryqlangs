@@ -204,12 +204,6 @@ namespace tryqlangs
                             MessageBoxIcon.Information
                         );
 
-                        
-                       
-
-                        cmbRoomType.SelectedIndex = -1;
-                        txtNumberOfGuest.Clear();
-                        txtTotalAmount.Clear();
                     }
                     else
                     {
@@ -366,6 +360,13 @@ Thank you for booking with us!";
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+
+                cmbRoomType.SelectedIndex = -1;
+                txtNumberOfGuest.Clear();
+                txtTotalAmount.Clear();
+
+                dtpCheckInDate.Value = DateTime.Today;
+                dtpCheckOutDate.Value = DateTime.Today.AddDays(1);
             }
             catch (Exception ex)
             {
