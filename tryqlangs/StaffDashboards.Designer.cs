@@ -33,7 +33,6 @@
             btnRoomStatus = new Button();
             btnUsers = new Button();
             btnCheckInCheckOut = new Button();
-            btnViewQrCode = new Button();
             dgvRecentReservation = new DataGridView();
             btnReservation = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).BeginInit();
@@ -91,28 +90,13 @@
             btnCheckInCheckOut.TabIndex = 10;
             btnCheckInCheckOut.UseVisualStyleBackColor = false;
             // 
-            // btnViewQrCode
-            // 
-            btnViewQrCode.BackColor = Color.Transparent;
-            btnViewQrCode.FlatAppearance.BorderSize = 0;
-            btnViewQrCode.FlatStyle = FlatStyle.Flat;
-            btnViewQrCode.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
-            btnViewQrCode.ForeColor = Color.White;
-            btnViewQrCode.Location = new Point(502, 475);
-            btnViewQrCode.Name = "btnViewQrCode";
-            btnViewQrCode.Size = new Size(190, 29);
-            btnViewQrCode.TabIndex = 23;
-            btnViewQrCode.Text = "View Details";
-            btnViewQrCode.UseVisualStyleBackColor = false;
-            btnViewQrCode.Click += btnViewQrCode_Click;
-            // 
             // dgvRecentReservation
             // 
             dgvRecentReservation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRecentReservation.Location = new Point(248, 243);
+            dgvRecentReservation.Location = new Point(248, 121);
             dgvRecentReservation.Name = "dgvRecentReservation";
             dgvRecentReservation.RowHeadersWidth = 51;
-            dgvRecentReservation.Size = new Size(695, 225);
+            dgvRecentReservation.Size = new Size(704, 385);
             dgvRecentReservation.TabIndex = 24;
             // 
             // btnReservation
@@ -137,7 +121,6 @@
             ClientSize = new Size(997, 540);
             Controls.Add(btnReservation);
             Controls.Add(dgvRecentReservation);
-            Controls.Add(btnViewQrCode);
             Controls.Add(btnLogOut);
             Controls.Add(btnRoomStatus);
             Controls.Add(btnUsers);
@@ -156,7 +139,6 @@
         private Button btnRoomStatus;
         private Button btnUsers;
         private Button btnCheckInCheckOut;
-        private Button btnViewQrCode;
         private DataGridView dgvRecentReservation;
         private Button btnReservation;
     }
