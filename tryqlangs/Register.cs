@@ -56,7 +56,7 @@ namespace tryqlangs
                     }
                 }
 
-                if (role == "admin" || role == "staff" || role == "customer")
+                if (role == "staff" || role == "customer")
                 {
                     // Insert into main users table first
                     string userQuery = "INSERT INTO userstbl (username, password, email, mobile, role) VALUES (@username, @password, @email, @mobile, @role)";
@@ -78,7 +78,7 @@ namespace tryqlangs
                 }
                 else
                 {
-                    MessageBox.Show("Please select a valid role (Admin, Staff, or Customer)!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select a valid role (Staff or Customer)!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 

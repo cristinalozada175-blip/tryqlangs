@@ -74,12 +74,6 @@ namespace tryqlangs
                             // Redirect based on role
                             switch (role)
                             {
-                                case "admin":
-                                    AdminDashboards adminDash = new AdminDashboards();
-                                    adminDash.Show();
-                                    this.Hide();
-                                    break;
-
                                 case "staff":
                                     StaffDashboards staffDash = new StaffDashboards();
                                     staffDash.Show();
@@ -87,8 +81,8 @@ namespace tryqlangs
                                     break;
 
                                 case "customer":
-                                    UserDashboard userDash = new UserDashboard();
-                                    userDash.Show();
+                                    Profile profile = new Profile();
+                                    profile.Show();
                                     this.Hide();
                                     break;
                             }
