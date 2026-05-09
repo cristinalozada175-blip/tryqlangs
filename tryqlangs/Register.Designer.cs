@@ -112,7 +112,7 @@
             // 
             cmbRole.FlatStyle = FlatStyle.Flat;
             cmbRole.FormattingEnabled = true;
-            cmbRole.Items.AddRange(new object[] { "customer", "staff", "admin" });
+            cmbRole.Items.AddRange(new object[] { "customer", "staff" });
             cmbRole.Location = new Point(627, 335);
             cmbRole.Name = "cmbRole";
             cmbRole.Size = new Size(295, 28);
