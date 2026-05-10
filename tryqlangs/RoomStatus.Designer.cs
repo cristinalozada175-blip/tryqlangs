@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomStatus));
-            dataGridView1 = new DataGridView();
+            dgvRoomStatus = new DataGridView();
             btnUpdate = new Button();
             btnSearch = new Button();
             btnRefresh = new Button();
             dtpCheckOut = new DateTimePicker();
             dtpCheckIn = new DateTimePicker();
             txtStatus = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtTotalAmount = new TextBox();
+            txtMNumberOfGuest = new TextBox();
+            txtSearch = new TextBox();
             btnDelete = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRoomStatus).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvRoomStatus
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(240, 168);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(414, 333);
-            dataGridView1.TabIndex = 0;
+            dgvRoomStatus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRoomStatus.Location = new Point(240, 168);
+            dgvRoomStatus.Name = "dgvRoomStatus";
+            dgvRoomStatus.RowHeadersWidth = 51;
+            dgvRoomStatus.Size = new Size(414, 333);
+            dgvRoomStatus.TabIndex = 0;
             // 
             // btnUpdate
             // 
@@ -118,29 +118,29 @@
             txtStatus.Size = new Size(252, 30);
             txtStatus.TabIndex = 29;
             // 
-            // textBox1
+            // txtTotalAmount
             // 
-            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(712, 389);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(253, 30);
-            textBox1.TabIndex = 30;
+            txtTotalAmount.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTotalAmount.Location = new Point(712, 389);
+            txtTotalAmount.Name = "txtTotalAmount";
+            txtTotalAmount.Size = new Size(253, 30);
+            txtTotalAmount.TabIndex = 30;
             // 
-            // textBox2
+            // txtMNumberOfGuest
             // 
-            textBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(709, 326);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(253, 30);
-            textBox2.TabIndex = 30;
+            txtMNumberOfGuest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMNumberOfGuest.Location = new Point(709, 326);
+            txtMNumberOfGuest.Name = "txtMNumberOfGuest";
+            txtMNumberOfGuest.Size = new Size(253, 30);
+            txtMNumberOfGuest.TabIndex = 30;
             // 
-            // textBox3
+            // txtSearch
             // 
-            textBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(240, 126);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(256, 30);
-            textBox3.TabIndex = 31;
+            txtSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(240, 126);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(256, 30);
+            txtSearch.TabIndex = 31;
             // 
             // btnDelete
             // 
@@ -164,36 +164,36 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
             Controls.Add(btnDelete);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearch);
+            Controls.Add(txtMNumberOfGuest);
+            Controls.Add(txtTotalAmount);
             Controls.Add(txtStatus);
             Controls.Add(dtpCheckOut);
             Controls.Add(dtpCheckIn);
             Controls.Add(btnRefresh);
             Controls.Add(btnSearch);
             Controls.Add(btnUpdate);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvRoomStatus);
             Name = "RoomStatus";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RoomStatus";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRoomStatus).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvRoomStatus;
         private Button btnUpdate;
         private Button btnSearch;
         private Button btnRefresh;
         private DateTimePicker dtpCheckOut;
         private DateTimePicker dtpCheckIn;
         private TextBox txtStatus;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtTotalAmount;
+        private TextBox txtMNumberOfGuest;
+        private TextBox txtSearch;
         private Button btnDelete;
     }
 }

@@ -35,6 +35,7 @@
             btnCheckInCheckOut = new Button();
             dgvRecentReservation = new DataGridView();
             btnReservation = new Button();
+            btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).BeginInit();
             SuspendLayout();
             // 
@@ -112,6 +113,20 @@
             btnReservation.TabIndex = 25;
             btnReservation.UseVisualStyleBackColor = false;
             // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.LimeGreen;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(817, 79);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(134, 38);
+            btnRefresh.TabIndex = 26;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
+            // 
             // StaffDashboards
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -119,6 +134,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnRefresh);
             Controls.Add(btnReservation);
             Controls.Add(dgvRecentReservation);
             Controls.Add(btnLogOut);
@@ -141,5 +157,6 @@
         private Button btnCheckInCheckOut;
         private DataGridView dgvRecentReservation;
         private Button btnReservation;
+        private Button btnRefresh;
     }
 }
