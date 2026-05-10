@@ -124,5 +124,21 @@ namespace tryqlangs
             bookARoomForm.Show();
             this.Hide();
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+              "Are you sure you want to logout?",
+              "Logout Confirmation",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                LogIn loginForm = new LogIn();
+                loginForm.Show();
+                this.Hide();
+            }
+        }
     }
 }

@@ -74,6 +74,7 @@
             btnLogOut.Size = new Size(190, 37);
             btnLogOut.TabIndex = 28;
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // btnBookRoom
             // 

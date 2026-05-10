@@ -50,9 +50,18 @@ namespace tryqlangs
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            LogIn logInForm = new LogIn();
-            logInForm.Show();
-            this.Hide();
+            DialogResult result = MessageBox.Show(
+              "Are you sure you want to logout?",
+              "Logout Confirmation",
+              MessageBoxButtons.YesNo,
+              MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                LogIn loginForm = new LogIn();
+                loginForm.Show();
+                this.Hide();
+            }
         }
 
         private void Profile_Load_1(object sender, EventArgs e)
