@@ -33,22 +33,29 @@ namespace tryqlangs
                 db.Open();
 
                 string query = @"
-            SELECT 
-                r.reservation_id,
-                u.username,
-                u.email,
-                rm.room_number,
-                rm.price,
-                r.check_in,
-                r.check_out,
-                r.night,
-                r.total_amount,
-                r.status AS reservation_status,
-                p.payment_status
-            FROM reservationstbl r
-            JOIN roomstbl rm ON r.room_id = rm.room_id
-            JOIN userstbl u ON r.user_id = u.user_id
-            LEFT JOIN paymentstbl p ON r.reservation_id = p.payment_id";
+SELECT 
+    r.reservation_id,
+    u.username,
+    u.email,
+    rm.room_number,
+    rm.price,
+    r.check_in,
+    r.check_out,
+    r.night,
+    r.total_amount,
+    r.status AS reservation_status,
+    COALESCE(p.payment_status, 'No Payment') AS payment_status
+
+FROM reservationstbl r
+
+JOIN roomstbl rm
+    ON r.room_id = rm.room_id
+
+JOIN userstbl u
+    ON r.user_id = u.user_id
+
+LEFT JOIN paymentstbl p
+    ON r.reservation_id = p.reservation_id";
 
                 MySql.Data.MySqlClient.MySqlCommand cmd =
                     new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
@@ -130,6 +137,11 @@ namespace tryqlangs
                 loginForm.Show();
                 this.Hide();
             }
+        }
+
+        private void dgvRecentReservation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

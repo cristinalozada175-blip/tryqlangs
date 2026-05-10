@@ -39,7 +39,6 @@
             btnCheckOut = new Button();
             txtGuestName = new TextBox();
             txtContactNumber = new TextBox();
-            txtStatus = new TextBox();
             txtRoomNumber = new TextBox();
             txtEmail = new TextBox();
             txtRoomType = new TextBox();
@@ -50,6 +49,7 @@
             txtNight = new TextBox();
             label1 = new Label();
             cmbPaymentStatus = new ComboBox();
+            cmbStatus = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvSummary).BeginInit();
             SuspendLayout();
             // 
@@ -183,14 +183,6 @@
             txtContactNumber.Size = new Size(217, 30);
             txtContactNumber.TabIndex = 16;
             // 
-            // txtStatus
-            // 
-            txtStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtStatus.Location = new Point(754, 336);
-            txtStatus.Name = "txtStatus";
-            txtStatus.Size = new Size(217, 30);
-            txtStatus.TabIndex = 20;
-            // 
             // txtRoomNumber
             // 
             txtRoomNumber.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -278,6 +270,18 @@
             cmbPaymentStatus.Name = "cmbPaymentStatus";
             cmbPaymentStatus.Size = new Size(217, 31);
             cmbPaymentStatus.TabIndex = 30;
+            cmbPaymentStatus.SelectedIndexChanged += cmbPaymentStatus_SelectedIndexChanged_1;
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Pending", "Checked-In", "Cancelled", "Checked-Out" });
+            cmbStatus.Location = new Point(754, 335);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(217, 31);
+            cmbStatus.TabIndex = 31;
+            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
             // CheckInOut
             // 
@@ -286,6 +290,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(cmbStatus);
             Controls.Add(cmbPaymentStatus);
             Controls.Add(label1);
             Controls.Add(txtNight);
@@ -296,7 +301,6 @@
             Controls.Add(txtRoomType);
             Controls.Add(txtRoomNumber);
             Controls.Add(txtEmail);
-            Controls.Add(txtStatus);
             Controls.Add(txtContactNumber);
             Controls.Add(txtGuestName);
             Controls.Add(btnCheckOut);
@@ -328,7 +332,6 @@
         private Button btnCheckOut;
         private TextBox txtGuestName;
         private TextBox txtContactNumber;
-        private TextBox txtStatus;
         private TextBox txtRoomNumber;
         private TextBox txtEmail;
         private TextBox txtRoomType;
@@ -339,5 +342,6 @@
         private TextBox txtNight;
         private Label label1;
         private ComboBox cmbPaymentStatus;
+        private ComboBox cmbStatus;
     }
 }

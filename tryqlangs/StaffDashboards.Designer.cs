@@ -102,6 +102,7 @@
             dgvRecentReservation.RowHeadersWidth = 51;
             dgvRecentReservation.Size = new Size(704, 385);
             dgvRecentReservation.TabIndex = 24;
+            dgvRecentReservation.CellContentClick += dgvRecentReservation_CellContentClick;
             // 
             // btnReservation
             // 
