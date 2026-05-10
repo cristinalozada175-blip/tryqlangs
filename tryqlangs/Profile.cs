@@ -142,7 +142,8 @@ namespace tryqlangs
 
             if (textBox1.Text == "" ||
                 textBox2.Text == "" ||
-                textBox3.Text == "")
+                textBox3.Text == "" ||
+                textBox4.Text == "")
             {
                 MessageBox.Show("Please complete all fields.");
                 return;
