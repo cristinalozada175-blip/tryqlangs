@@ -46,9 +46,9 @@
             txtReservationId = new TextBox();
             dtpCheckIn = new DateTimePicker();
             dtpCheckOut = new DateTimePicker();
-            dataGridView1 = new DataGridView();
-            dtpNights = new DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgvSummary = new DataGridView();
+            textBox1 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvSummary).BeginInit();
             SuspendLayout();
             // 
             // btnUsers
@@ -76,6 +76,7 @@
             btnRoomStatus.Size = new Size(190, 37);
             btnRoomStatus.TabIndex = 8;
             btnRoomStatus.UseVisualStyleBackColor = false;
+            btnRoomStatus.Click += btnRoomStatus_Click;
             // 
             // btnReservation
             // 
@@ -89,6 +90,7 @@
             btnReservation.Size = new Size(190, 37);
             btnReservation.TabIndex = 9;
             btnReservation.UseVisualStyleBackColor = false;
+            btnReservation.Click += btnReservation_Click;
             // 
             // btnCheckInOut
             // 
@@ -102,6 +104,7 @@
             btnCheckInOut.Size = new Size(190, 54);
             btnCheckInOut.TabIndex = 10;
             btnCheckInOut.UseVisualStyleBackColor = false;
+            btnCheckInOut.Click += btnCheckInOut_Click;
             // 
             // button4
             // 
@@ -115,6 +118,7 @@
             button4.Size = new Size(190, 37);
             button4.TabIndex = 11;
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // btnVewDetails
             // 
@@ -129,6 +133,7 @@
             btnVewDetails.TabIndex = 12;
             btnVewDetails.Text = "View Details";
             btnVewDetails.UseVisualStyleBackColor = false;
+            btnVewDetails.Click += btnVewDetails_Click;
             // 
             // btnCheckIn
             // 
@@ -143,6 +148,7 @@
             btnCheckIn.TabIndex = 13;
             btnCheckIn.Text = "➜] Check-In";
             btnCheckIn.UseVisualStyleBackColor = false;
+            btnCheckIn.Click += btnCheckIn_Click;
             // 
             // btnCheckOut
             // 
@@ -157,6 +163,7 @@
             btnCheckOut.TabIndex = 14;
             btnCheckOut.Text = "➜] Check-Out";
             btnCheckOut.UseVisualStyleBackColor = false;
+            btnCheckOut.Click += btnCheckOut_Click;
             // 
             // txtGuestName
             // 
@@ -230,22 +237,22 @@
             dtpCheckOut.Size = new Size(217, 27);
             dtpCheckOut.TabIndex = 26;
             // 
-            // dataGridView1
+            // dgvSummary
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(222, 239);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(239, 270);
-            dataGridView1.TabIndex = 27;
+            dgvSummary.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSummary.Location = new Point(222, 239);
+            dgvSummary.Name = "dgvSummary";
+            dgvSummary.RowHeadersWidth = 51;
+            dgvSummary.Size = new Size(239, 270);
+            dgvSummary.TabIndex = 27;
+            dgvSummary.CellContentClick += dgvSummary_CellClick;
             // 
-            // dtpNights
+            // textBox1
             // 
-            dtpNights.CalendarFont = new Font("Segoe UI", 14F);
-            dtpNights.Location = new Point(755, 270);
-            dtpNights.Name = "dtpNights";
-            dtpNights.Size = new Size(217, 27);
-            dtpNights.TabIndex = 28;
+            textBox1.Location = new Point(755, 270);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(217, 27);
+            textBox1.TabIndex = 28;
             // 
             // CheckInOut
             // 
@@ -254,8 +261,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
-            Controls.Add(dtpNights);
-            Controls.Add(dataGridView1);
+            Controls.Add(textBox1);
+            Controls.Add(dgvSummary);
             Controls.Add(dtpCheckOut);
             Controls.Add(dtpCheckIn);
             Controls.Add(txtReservationId);
@@ -276,7 +283,8 @@
             Name = "CheckInOut";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CheckInOut";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += CheckInOut_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvSummary).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -300,7 +308,7 @@
         private TextBox txtReservationId;
         private DateTimePicker dtpCheckIn;
         private DateTimePicker dtpCheckOut;
-        private DataGridView dataGridView1;
-        private DateTimePicker dtpNights;
+        private DataGridView dgvSummary;
+        private TextBox textBox1;
     }
 }

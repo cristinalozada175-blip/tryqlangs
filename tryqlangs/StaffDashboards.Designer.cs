@@ -51,6 +51,7 @@
             btnLogOut.Size = new Size(190, 37);
             btnLogOut.TabIndex = 14;
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // btnRoomStatus
             // 
@@ -64,6 +65,7 @@
             btnRoomStatus.Size = new Size(190, 37);
             btnRoomStatus.TabIndex = 13;
             btnRoomStatus.UseVisualStyleBackColor = false;
+            btnRoomStatus.Click += btnRoomStatus_Click;
             // 
             // btnUsers
             // 
@@ -90,6 +92,7 @@
             btnCheckInCheckOut.Size = new Size(190, 51);
             btnCheckInCheckOut.TabIndex = 10;
             btnCheckInCheckOut.UseVisualStyleBackColor = false;
+            btnCheckInCheckOut.Click += btnCheckInCheckOut_Click;
             // 
             // dgvRecentReservation
             // 
@@ -112,6 +115,7 @@
             btnReservation.Size = new Size(190, 37);
             btnReservation.TabIndex = 25;
             btnReservation.UseVisualStyleBackColor = false;
+            btnReservation.Click += btnReservation_Click;
             // 
             // btnRefresh
             // 
@@ -126,6 +130,7 @@
             btnRefresh.TabIndex = 26;
             btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // StaffDashboards
             // 
