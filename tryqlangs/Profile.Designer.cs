@@ -137,6 +137,7 @@
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 29;
             btnMyReservation.UseVisualStyleBackColor = false;
+            btnMyReservation.Click += btnMyReservation_Click_1;
             // 
             // Profile
             // 

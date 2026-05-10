@@ -201,5 +201,12 @@ namespace tryqlangs
                 db.Close();
             }
         }
+
+        private void btnMyReservation_Click_1(object sender, EventArgs e)
+        {
+            UserDashboards userDashboardsForm = new UserDashboards();   
+            userDashboardsForm.Show();
+            this.Hide();
+        }
     }
 }

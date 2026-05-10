@@ -29,23 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboards));
-            dgvRecentReservation = new DataGridView();
+            dgvReservations = new DataGridView();
             btnMyReservation = new Button();
             btnLogOut = new Button();
             btnBookRoom = new Button();
             btnProfile = new Button();
             btnRefresh = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReservations).BeginInit();
             SuspendLayout();
             // 
-            // dgvRecentReservation
+            // dgvReservations
             // 
-            dgvRecentReservation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRecentReservation.Location = new Point(253, 125);
-            dgvRecentReservation.Name = "dgvRecentReservation";
-            dgvRecentReservation.RowHeadersWidth = 51;
-            dgvRecentReservation.Size = new Size(694, 377);
-            dgvRecentReservation.TabIndex = 25;
+            dgvReservations.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReservations.Location = new Point(253, 125);
+            dgvReservations.Name = "dgvReservations";
+            dgvReservations.RowHeadersWidth = 51;
+            dgvReservations.Size = new Size(694, 377);
+            dgvReservations.TabIndex = 25;
+            dgvReservations.CellContentClick += dgvReservations_CellContentClick;
             // 
             // btnMyReservation
             // 
@@ -59,6 +60,7 @@
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 29;
             btnMyReservation.UseVisualStyleBackColor = false;
+            btnMyReservation.Click += btnMyReservation_Click;
             // 
             // btnLogOut
             // 
@@ -85,6 +87,7 @@
             btnBookRoom.Size = new Size(190, 37);
             btnBookRoom.TabIndex = 27;
             btnBookRoom.UseVisualStyleBackColor = false;
+            btnBookRoom.Click += btnBookRoom_Click;
             // 
             // btnProfile
             // 
@@ -98,6 +101,7 @@
             btnProfile.Size = new Size(190, 37);
             btnProfile.TabIndex = 26;
             btnProfile.UseVisualStyleBackColor = false;
+            btnProfile.Click += btnProfile_Click;
             // 
             // btnRefresh
             // 
@@ -110,7 +114,9 @@
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(168, 37);
             btnRefresh.TabIndex = 30;
+            btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // UserDashboards
             // 
@@ -124,17 +130,17 @@
             Controls.Add(btnLogOut);
             Controls.Add(btnBookRoom);
             Controls.Add(btnProfile);
-            Controls.Add(dgvRecentReservation);
+            Controls.Add(dgvReservations);
             Name = "UserDashboards";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "UserDashboards";
-            ((System.ComponentModel.ISupportInitialize)dgvRecentReservation).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReservations).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvRecentReservation;
+        private DataGridView dgvReservations;
         private Button btnMyReservation;
         private Button btnLogOut;
         private Button btnBookRoom;

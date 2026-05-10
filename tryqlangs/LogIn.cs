@@ -85,8 +85,8 @@ namespace tryqlangs
                                     break;
 
                                 case "customer":
-                                    Profile profile = new Profile();
-                                    profile.Show();
+                                    UserDashboards userDashboardsForm = new UserDashboards();
+                                    userDashboardsForm.Show();
                                     this.Hide();
                                     break;
                             }

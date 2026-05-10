@@ -242,7 +242,7 @@ namespace tryqlangs
 
         private void btnMyReservation_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace tryqlangs
         private void btnReceipt_Click(object sender, EventArgs e)
         {
             DbConnect.DBConnect db = new DbConnect.DBConnect();
-            
+
             try
             {
                 db.Open();
@@ -377,9 +377,19 @@ Thank you for booking with us!";
                 db.Close();
             }
 
-            
+
         }
 
-        
+        private void BookARoom_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMyReservation_Click_1(object sender, EventArgs e)
+        {
+            UserDashboards userDashboardsForm = new UserDashboards();
+            userDashboardsForm.Show();
+            this.Hide();
+        }
     }
 }

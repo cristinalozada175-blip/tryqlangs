@@ -184,6 +184,7 @@
             btnMyReservation.Size = new Size(190, 37);
             btnMyReservation.TabIndex = 24;
             btnMyReservation.UseVisualStyleBackColor = false;
+            btnMyReservation.Click += btnMyReservation_Click_1;
             // 
             // BookARoom
             // 
@@ -208,6 +209,7 @@
             Name = "BookARoom";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "BookARoom";
+            Load += BookARoom_Load;
             ResumeLayout(false);
             PerformLayout();
         }
