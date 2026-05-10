@@ -35,11 +35,15 @@
             btnRefresh = new Button();
             dtpCheckOut = new DateTimePicker();
             dtpCheckIn = new DateTimePicker();
-            txtStatus = new TextBox();
+            txtRoomType = new TextBox();
             txtTotalAmount = new TextBox();
-            txtMNumberOfGuest = new TextBox();
+            txtNumberOfGuest = new TextBox();
             txtSearch = new TextBox();
             btnDelete = new Button();
+            txtRoomStatus = new Button();
+            btnReservation = new Button();
+            btnCheckInOut = new Button();
+            btnLogOut = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRoomStatus).BeginInit();
             SuspendLayout();
             // 
@@ -65,6 +69,7 @@
             btnUpdate.TabIndex = 15;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnSearch
             // 
@@ -79,6 +84,7 @@
             btnSearch.TabIndex = 16;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnRefresh
             // 
@@ -93,6 +99,7 @@
             btnRefresh.TabIndex = 17;
             btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // dtpCheckOut
             // 
@@ -110,13 +117,13 @@
             dtpCheckIn.Size = new Size(253, 27);
             dtpCheckIn.TabIndex = 27;
             // 
-            // txtStatus
+            // txtRoomType
             // 
-            txtStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtStatus.Location = new Point(710, 143);
-            txtStatus.Name = "txtStatus";
-            txtStatus.Size = new Size(252, 30);
-            txtStatus.TabIndex = 29;
+            txtRoomType.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRoomType.Location = new Point(710, 143);
+            txtRoomType.Name = "txtRoomType";
+            txtRoomType.Size = new Size(252, 30);
+            txtRoomType.TabIndex = 29;
             // 
             // txtTotalAmount
             // 
@@ -126,13 +133,13 @@
             txtTotalAmount.Size = new Size(253, 30);
             txtTotalAmount.TabIndex = 30;
             // 
-            // txtMNumberOfGuest
+            // txtNumberOfGuest
             // 
-            txtMNumberOfGuest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMNumberOfGuest.Location = new Point(709, 326);
-            txtMNumberOfGuest.Name = "txtMNumberOfGuest";
-            txtMNumberOfGuest.Size = new Size(253, 30);
-            txtMNumberOfGuest.TabIndex = 30;
+            txtNumberOfGuest.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNumberOfGuest.Location = new Point(709, 326);
+            txtNumberOfGuest.Name = "txtNumberOfGuest";
+            txtNumberOfGuest.Size = new Size(253, 30);
+            txtNumberOfGuest.TabIndex = 30;
             // 
             // txtSearch
             // 
@@ -146,7 +153,7 @@
             // 
             btnDelete.BackColor = Color.Transparent;
             btnDelete.FlatAppearance.BorderSize = 0;
-            btnDelete.FlatStyle = FlatStyle.Popup;
+            btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 8.2F, FontStyle.Bold);
             btnDelete.ForeColor = Color.White;
             btnDelete.Location = new Point(743, 470);
@@ -155,6 +162,59 @@
             btnDelete.TabIndex = 32;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // txtRoomStatus
+            // 
+            txtRoomStatus.BackColor = Color.Transparent;
+            txtRoomStatus.BackgroundImageLayout = ImageLayout.Center;
+            txtRoomStatus.FlatAppearance.BorderSize = 0;
+            txtRoomStatus.FlatStyle = FlatStyle.Flat;
+            txtRoomStatus.Location = new Point(-1, 253);
+            txtRoomStatus.Name = "txtRoomStatus";
+            txtRoomStatus.Size = new Size(204, 33);
+            txtRoomStatus.TabIndex = 33;
+            txtRoomStatus.UseVisualStyleBackColor = false;
+            txtRoomStatus.Click += txtRoomStatus_Click;
+            // 
+            // btnReservation
+            // 
+            btnReservation.BackColor = Color.Transparent;
+            btnReservation.BackgroundImageLayout = ImageLayout.Center;
+            btnReservation.FlatAppearance.BorderSize = 0;
+            btnReservation.FlatStyle = FlatStyle.Flat;
+            btnReservation.Location = new Point(-1, 301);
+            btnReservation.Name = "btnReservation";
+            btnReservation.Size = new Size(204, 33);
+            btnReservation.TabIndex = 34;
+            btnReservation.UseVisualStyleBackColor = false;
+            btnReservation.Click += btnReservation_Click;
+            // 
+            // btnCheckInOut
+            // 
+            btnCheckInOut.BackColor = Color.Transparent;
+            btnCheckInOut.BackgroundImageLayout = ImageLayout.Center;
+            btnCheckInOut.FlatAppearance.BorderSize = 0;
+            btnCheckInOut.FlatStyle = FlatStyle.Flat;
+            btnCheckInOut.Location = new Point(-1, 350);
+            btnCheckInOut.Name = "btnCheckInOut";
+            btnCheckInOut.Size = new Size(204, 53);
+            btnCheckInOut.TabIndex = 35;
+            btnCheckInOut.UseVisualStyleBackColor = false;
+            btnCheckInOut.Click += btnCheckInOut_Click;
+            // 
+            // btnLogOut
+            // 
+            btnLogOut.BackColor = Color.Transparent;
+            btnLogOut.BackgroundImageLayout = ImageLayout.Center;
+            btnLogOut.FlatAppearance.BorderSize = 0;
+            btnLogOut.FlatStyle = FlatStyle.Flat;
+            btnLogOut.Location = new Point(-1, 470);
+            btnLogOut.Name = "btnLogOut";
+            btnLogOut.Size = new Size(204, 42);
+            btnLogOut.TabIndex = 36;
+            btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // RoomStatus
             // 
@@ -163,11 +223,15 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnLogOut);
+            Controls.Add(btnCheckInOut);
+            Controls.Add(btnReservation);
+            Controls.Add(txtRoomStatus);
             Controls.Add(btnDelete);
             Controls.Add(txtSearch);
-            Controls.Add(txtMNumberOfGuest);
+            Controls.Add(txtNumberOfGuest);
             Controls.Add(txtTotalAmount);
-            Controls.Add(txtStatus);
+            Controls.Add(txtRoomType);
             Controls.Add(dtpCheckOut);
             Controls.Add(dtpCheckIn);
             Controls.Add(btnRefresh);
@@ -177,6 +241,7 @@
             Name = "RoomStatus";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RoomStatus";
+            Load += RoomStatus_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRoomStatus).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -190,10 +255,14 @@
         private Button btnRefresh;
         private DateTimePicker dtpCheckOut;
         private DateTimePicker dtpCheckIn;
-        private TextBox txtStatus;
+        private TextBox txtRoomType;
         private TextBox txtTotalAmount;
-        private TextBox txtMNumberOfGuest;
+        private TextBox txtNumberOfGuest;
         private TextBox txtSearch;
         private Button btnDelete;
+        private Button txtRoomStatus;
+        private Button btnReservation;
+        private Button btnCheckInOut;
+        private Button btnLogOut;
     }
 }

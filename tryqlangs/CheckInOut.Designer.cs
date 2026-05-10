@@ -47,7 +47,9 @@
             dtpCheckIn = new DateTimePicker();
             dtpCheckOut = new DateTimePicker();
             dgvSummary = new DataGridView();
-            textBox1 = new TextBox();
+            txtNight = new TextBox();
+            label1 = new Label();
+            cmbPaymentStatus = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvSummary).BeginInit();
             SuspendLayout();
             // 
@@ -247,12 +249,35 @@
             dgvSummary.TabIndex = 27;
             dgvSummary.CellContentClick += dgvSummary_CellClick;
             // 
-            // textBox1
+            // txtNight
             // 
-            textBox1.Location = new Point(755, 270);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(217, 27);
-            textBox1.TabIndex = 28;
+            txtNight.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNight.Location = new Point(755, 270);
+            txtNight.Name = "txtNight";
+            txtNight.Size = new Size(217, 30);
+            txtNight.TabIndex = 28;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(755, 371);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 23);
+            label1.TabIndex = 29;
+            label1.Text = "Payment Status: ";
+            // 
+            // cmbPaymentStatus
+            // 
+            cmbPaymentStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbPaymentStatus.FormattingEnabled = true;
+            cmbPaymentStatus.Items.AddRange(new object[] { "Paid", "Pending", "Failed" });
+            cmbPaymentStatus.Location = new Point(754, 402);
+            cmbPaymentStatus.Name = "cmbPaymentStatus";
+            cmbPaymentStatus.Size = new Size(217, 31);
+            cmbPaymentStatus.TabIndex = 30;
             // 
             // CheckInOut
             // 
@@ -261,7 +286,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
-            Controls.Add(textBox1);
+            Controls.Add(cmbPaymentStatus);
+            Controls.Add(label1);
+            Controls.Add(txtNight);
             Controls.Add(dgvSummary);
             Controls.Add(dtpCheckOut);
             Controls.Add(dtpCheckIn);
@@ -309,6 +336,8 @@
         private DateTimePicker dtpCheckIn;
         private DateTimePicker dtpCheckOut;
         private DataGridView dgvSummary;
-        private TextBox textBox1;
+        private TextBox txtNight;
+        private Label label1;
+        private ComboBox cmbPaymentStatus;
     }
 }
