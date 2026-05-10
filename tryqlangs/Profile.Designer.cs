@@ -37,6 +37,7 @@
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             btnUpdateProfile = new Button();
+            btnMyReservation = new Button();
             SuspendLayout();
             // 
             // btnLogOut
@@ -124,6 +125,19 @@
             btnUpdateProfile.UseVisualStyleBackColor = false;
             btnUpdateProfile.Click += btnUpdateProfile_Click;
             // 
+            // btnMyReservation
+            // 
+            btnMyReservation.BackColor = Color.Transparent;
+            btnMyReservation.FlatAppearance.BorderSize = 0;
+            btnMyReservation.FlatStyle = FlatStyle.Flat;
+            btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMyReservation.ForeColor = Color.White;
+            btnMyReservation.Location = new Point(12, 301);
+            btnMyReservation.Name = "btnMyReservation";
+            btnMyReservation.Size = new Size(190, 37);
+            btnMyReservation.TabIndex = 29;
+            btnMyReservation.UseVisualStyleBackColor = false;
+            // 
             // Profile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -131,6 +145,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnMyReservation);
             Controls.Add(btnUpdateProfile);
             Controls.Add(textBox3);
             Controls.Add(textBox4);
@@ -156,5 +171,6 @@
         private TextBox textBox3;
         private TextBox textBox4;
         private Button btnUpdateProfile;
+        private Button btnMyReservation;
     }
 }

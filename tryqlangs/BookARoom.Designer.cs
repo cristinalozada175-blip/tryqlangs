@@ -40,6 +40,7 @@
             cmbRoomType = new ComboBox();
             btnBookNow = new Button();
             btnSendReceipt = new Button();
+            btnMyReservation = new Button();
             SuspendLayout();
             // 
             // btnCalculate
@@ -171,6 +172,19 @@
             btnSendReceipt.UseVisualStyleBackColor = false;
             btnSendReceipt.Click += btnReceipt_Click;
             // 
+            // btnMyReservation
+            // 
+            btnMyReservation.BackColor = Color.Transparent;
+            btnMyReservation.FlatAppearance.BorderSize = 0;
+            btnMyReservation.FlatStyle = FlatStyle.Flat;
+            btnMyReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMyReservation.ForeColor = Color.White;
+            btnMyReservation.Location = new Point(13, 301);
+            btnMyReservation.Name = "btnMyReservation";
+            btnMyReservation.Size = new Size(190, 37);
+            btnMyReservation.TabIndex = 24;
+            btnMyReservation.UseVisualStyleBackColor = false;
+            // 
             // BookARoom
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -179,6 +193,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             CausesValidation = false;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnMyReservation);
             Controls.Add(btnSendReceipt);
             Controls.Add(btnBookNow);
             Controls.Add(cmbRoomType);
@@ -211,5 +226,6 @@
         private ComboBox cmbRoomType;
         private Button btnBookNow;
         private Button btnSendReceipt;
+        private Button btnMyReservation;
     }
 }
