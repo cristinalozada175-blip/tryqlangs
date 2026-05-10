@@ -45,7 +45,7 @@ namespace tryqlangs
 
         private void btnMyReservation_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -136,6 +136,69 @@ namespace tryqlangs
             }
         }
 
+        private void btnUpdateProfile_Click(object sender, EventArgs e)
+        {
+            int currentId = LogIn.UserSession.userstblID;
 
+            if (textBox1.Text == "" ||
+                textBox2.Text == "" ||
+                textBox3.Text == "")
+            {
+                MessageBox.Show("Please complete all fields.");
+                return;
+            }
+
+            if (!textBox2.Text.Contains("@"))
+            {
+                MessageBox.Show("Invalid email.");
+                return;
+            }
+
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string query = @"
+        UPDATE userstbl
+        SET 
+            username = @username,
+            email = @email,
+            mobile = @mobile,
+            password = @password
+        WHERE user_id = @user_id";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+
+                cmd.Parameters.AddWithValue("@username", textBox1.Text.Trim());
+                cmd.Parameters.AddWithValue("@email", textBox2.Text.Trim());
+                cmd.Parameters.AddWithValue("@mobile", textBox4.Text.Trim());
+                cmd.Parameters.AddWithValue("@password", textBox3.Text.Trim());
+                cmd.Parameters.AddWithValue("@user_id", currentId);
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    MessageBox.Show("Profile updated successfully!");
+
+                    // reload data
+                    takbo();
+                }
+                else
+                {
+                    MessageBox.Show("Update failed.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Update Error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
     }
 }

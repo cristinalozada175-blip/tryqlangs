@@ -36,6 +36,7 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
+            btnUpdateProfile = new Button();
             SuspendLayout();
             // 
             // btnLogOut
@@ -108,6 +109,21 @@
             textBox4.Size = new Size(291, 27);
             textBox4.TabIndex = 26;
             // 
+            // btnUpdateProfile
+            // 
+            btnUpdateProfile.BackColor = Color.SeaGreen;
+            btnUpdateProfile.FlatAppearance.BorderSize = 0;
+            btnUpdateProfile.FlatStyle = FlatStyle.Flat;
+            btnUpdateProfile.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateProfile.ForeColor = Color.White;
+            btnUpdateProfile.Location = new Point(690, 394);
+            btnUpdateProfile.Name = "btnUpdateProfile";
+            btnUpdateProfile.Size = new Size(216, 30);
+            btnUpdateProfile.TabIndex = 28;
+            btnUpdateProfile.Text = "Update Profile";
+            btnUpdateProfile.UseVisualStyleBackColor = false;
+            btnUpdateProfile.Click += btnUpdateProfile_Click;
+            // 
             // Profile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -115,6 +131,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(997, 540);
+            Controls.Add(btnUpdateProfile);
             Controls.Add(textBox3);
             Controls.Add(textBox4);
             Controls.Add(textBox2);
@@ -138,5 +155,6 @@
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
+        private Button btnUpdateProfile;
     }
 }
