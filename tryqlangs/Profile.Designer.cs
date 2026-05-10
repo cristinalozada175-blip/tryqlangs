@@ -156,6 +156,7 @@
             Controls.Add(btnBookRoom);
             Controls.Add(btnProfile);
             Name = "Profile";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Profile";
             Load += Profile_Load_1;
             ResumeLayout(false);
