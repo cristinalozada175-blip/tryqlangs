@@ -73,9 +73,9 @@
             btnRoomStatus.FlatStyle = FlatStyle.Flat;
             btnRoomStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRoomStatus.ForeColor = Color.White;
-            btnRoomStatus.Location = new Point(19, 251);
+            btnRoomStatus.Location = new Point(-3, 251);
             btnRoomStatus.Name = "btnRoomStatus";
-            btnRoomStatus.Size = new Size(190, 37);
+            btnRoomStatus.Size = new Size(207, 37);
             btnRoomStatus.TabIndex = 8;
             btnRoomStatus.UseVisualStyleBackColor = false;
             btnRoomStatus.Click += btnRoomStatus_Click;
@@ -87,9 +87,9 @@
             btnReservation.FlatStyle = FlatStyle.Flat;
             btnReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReservation.ForeColor = Color.White;
-            btnReservation.Location = new Point(19, 300);
+            btnReservation.Location = new Point(-3, 300);
             btnReservation.Name = "btnReservation";
-            btnReservation.Size = new Size(190, 37);
+            btnReservation.Size = new Size(207, 37);
             btnReservation.TabIndex = 9;
             btnReservation.UseVisualStyleBackColor = false;
             btnReservation.Click += btnReservation_Click;
@@ -101,9 +101,9 @@
             btnCheckInOut.FlatStyle = FlatStyle.Flat;
             btnCheckInOut.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCheckInOut.ForeColor = Color.White;
-            btnCheckInOut.Location = new Point(15, 351);
+            btnCheckInOut.Location = new Point(-3, 351);
             btnCheckInOut.Name = "btnCheckInOut";
-            btnCheckInOut.Size = new Size(190, 54);
+            btnCheckInOut.Size = new Size(208, 54);
             btnCheckInOut.TabIndex = 10;
             btnCheckInOut.UseVisualStyleBackColor = false;
             btnCheckInOut.Click += btnCheckInOut_Click;
@@ -115,9 +115,9 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(19, 472);
+            button4.Location = new Point(-3, 472);
             button4.Name = "button4";
-            button4.Size = new Size(190, 37);
+            button4.Size = new Size(212, 37);
             button4.TabIndex = 11;
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
@@ -276,7 +276,7 @@
             // 
             cmbStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "Pending", "Checked-In", "Cancelled", "Checked-Out" });
+            cmbStatus.Items.AddRange(new object[] { "Upcoming", "Pending", "Checked-In", "Cancelled", "Checked-Out" });
             cmbStatus.Location = new Point(754, 335);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(217, 31);

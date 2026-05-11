@@ -28,20 +28,21 @@ namespace tryqlangs
             {
                 db.Open();
 
-                string query = @"
-                SELECT 
-                    r.reservation_id,
-                    r.check_in,
-                    r.check_out,
-                    r.status,
-                    r.night,
-                    r.total_amount,
+                string query = @" 
+                    SELECT 
+    r.reservation_id,
+    r.check_in,
+    r.check_out,
+    r.status,
+    r.night,
+    r.total_amount,
+    r.room_number,
 
-                    rm.room_id,
-                    rm.room_number,
-                    rm.room_type,
-                    rm.price,
-                    rm.guest_limit
+    rm.room_id,
+
+    rm.room_type,
+    rm.price,
+    rm.guest_limit
 
                 FROM reservationstbl r
 
@@ -50,7 +51,7 @@ namespace tryqlangs
 
                 WHERE 
                     CAST(r.reservation_id AS CHAR) LIKE @search
-                    OR CAST(rm.room_number AS CHAR) LIKE @search
+                    OR CAST(r.room_number AS CHAR) LIKE @search
 
                 ORDER BY r.reservation_id DESC";
 
@@ -132,6 +133,14 @@ namespace tryqlangs
 
         private void RoomStatus_Load(object sender, EventArgs e)
         {
+            cmbStatus.Items.Clear();
+
+            cmbStatus.Items.Add("PENDING");
+            cmbStatus.Items.Add("CHECKED-IN");
+            cmbStatus.Items.Add("CHECKED-OUT");
+            cmbStatus.Items.Add("CANCELLED");
+
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -140,35 +149,26 @@ namespace tryqlangs
             LoadReservations();
         }
 
-        private void dgvRoomStatus_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvRoomStatus_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row =
-                    dgvRoomStatus.Rows[e.RowIndex];
+            if (e.RowIndex < 0) return;
 
-                txtSearch.Text =
-                    row.Cells["reservation_id"].Value.ToString();
+            DataGridViewRow row = dgvRoomStatus.Rows[e.RowIndex];
 
-                txtRoomType.Text =
-                    row.Cells["room_type"].Value.ToString();
+            txtSearch.Text = row.Cells["reservation_id"].Value?.ToString();
+            txtRoomType.Text = row.Cells["room_type"].Value?.ToString();
+            txtRoomNumber.Text = row.Cells["room_number"].Value?.ToString();
+            cmbStatus.Text = row.Cells["status"].Value?.ToString();
+            txtNumberOfGuest.Text =
+            Convert.ToInt32(row.Cells["night"].Value ?? 0).ToString();
+            txtTotalAmount.Text = row.Cells["total_amount"].Value?.ToString();
 
-                dtpCheckIn.Value =
-                    Convert.ToDateTime(row.Cells["check_in"].Value);
+            if (DateTime.TryParse(row.Cells["check_in"].Value?.ToString(), out DateTime inDate))
+                dtpCheckIn.Value = inDate;
 
-                dtpCheckOut.Value =
-                    Convert.ToDateTime(row.Cells["check_out"].Value);
-
-                txtNumberOfGuest.Text =
-                    row.Cells["night"].Value.ToString();
-
-                txtTotalAmount.Text =
-                    Convert.ToDecimal(
-                        row.Cells["total_amount"].Value
-                    ).ToString("0.00");
-            }
+            if (DateTime.TryParse(row.Cells["check_out"].Value?.ToString(), out DateTime outDate))
+                dtpCheckOut.Value = outDate;
         }
-
         private int GetRoomId(string roomType)
         {
             int roomId = 0;
@@ -275,6 +275,7 @@ namespace tryqlangs
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
             if (!int.TryParse(
         txtNumberOfGuest.Text,
         out int night))
@@ -309,17 +310,20 @@ namespace tryqlangs
                 if (!string.IsNullOrWhiteSpace(txtSearch.Text))
                 {
                     string updateQuery = @"
-            UPDATE reservationstbl SET
-                room_id=@roomid,
-                check_in=@checkin,
-                check_out=@checkout,
-                night=@night,
-                total_amount=@amount
-            WHERE reservation_id=@id";
+UPDATE reservationstbl SET
+    room_id=@roomid,
+    check_in=@checkin,
+    check_out=@checkout,
+    night=@night,
+    total_amount=@amount,
+    room_number=@room_number,
+    status=@status
+WHERE reservation_id=@id";
 
                     cmd = new MySqlCommand(updateQuery, db.Connection);
 
                     cmd.Parameters.AddWithValue("@id", txtSearch.Text.Trim());
+                    cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                 }
 
                 else
@@ -332,7 +336,8 @@ namespace tryqlangs
                 check_out,
                 status,
                 night,
-                total_amount
+                total_amount,
+                room_number
             )
             VALUES
             (
@@ -341,7 +346,8 @@ namespace tryqlangs
                 @checkout,
                 @status,
                 @night,
-                @amount
+                @amount,
+                @room_number
             )";
 
                     cmd = new MySqlCommand(insertQuery, db.Connection);
@@ -354,6 +360,7 @@ namespace tryqlangs
                 cmd.Parameters.AddWithValue("@checkout", dtpCheckOut.Value.Date);
                 cmd.Parameters.AddWithValue("@night", night);
                 cmd.Parameters.AddWithValue("@amount", amount);
+                cmd.Parameters.AddWithValue("@room_number", txtRoomNumber.Text.Trim());
 
                 int rows = cmd.ExecuteNonQuery();
 
@@ -405,6 +412,11 @@ namespace tryqlangs
                     txtSearch.Text.Trim()
                 );
 
+                cmd.Parameters.AddWithValue(
+                    "@room_number",
+                    txtRoomNumber.Text.Trim()
+                );
+
                 int rows = cmd.ExecuteNonQuery();
 
                 if (rows > 0)
@@ -413,6 +425,7 @@ namespace tryqlangs
 
                     LoadReservations();
                     ClearFields();
+
                 }
                 else
                 {
@@ -449,6 +462,117 @@ namespace tryqlangs
 
             dtpCheckIn.Value = DateTime.Today;
             dtpCheckOut.Value = DateTime.Today.AddDays(1);
+        }
+
+        private void btnUpdateRoomNumber_Click(object sender, EventArgs e)
+        {
+            if (!IsRoomNumberAvailable(
+                txtRoomNumber.Text.Trim(),
+                txtSearch.Text.Trim()))
+            {
+                MessageBox.Show("Room number is already occupied.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtRoomNumber.Text))
+            {
+                MessageBox.Show("Please enter room number.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                MessageBox.Show("Please select a reservation first.");
+                return;
+            }
+
+            try
+            {
+                db.Open();
+
+                string query = @"
+        UPDATE reservationstbl 
+        SET room_number = @room_number
+        WHERE reservation_id = @id";
+
+                MySqlCommand cmd = new MySqlCommand(query, db.Connection);
+
+                cmd.Parameters.AddWithValue("@room_number", txtRoomNumber.Text.Trim());
+                cmd.Parameters.AddWithValue("@id", txtSearch.Text.Trim());
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    MessageBox.Show("Room number updated successfully!");
+                    LoadReservations();
+                }
+                else
+                {
+                    MessageBox.Show("Update failed. No record found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        private bool IsRoomNumberAvailable(string roomNumber, string reservationId)
+        {
+            bool available = true;
+
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string query = @"
+        SELECT COUNT(*) 
+        FROM reservationstbl
+        WHERE room_number = @room_number
+        AND reservation_id <> @reservation_id
+        AND status <> 'CHECKED-OUT'
+        AND status <> 'CANCELLED'";
+
+                MySql.Data.MySqlClient.MySqlCommand cmd =
+                    new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
+
+                cmd.Parameters.AddWithValue("@room_number", roomNumber);
+                cmd.Parameters.AddWithValue("@reservation_id", reservationId);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (count > 0)
+                {
+                    available = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+
+            return available;
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvRoomStatus_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

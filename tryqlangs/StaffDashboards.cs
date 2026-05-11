@@ -37,14 +37,14 @@ SELECT
     r.reservation_id,
     u.username,
     u.email,
-    rm.room_number,
+    r.room_number,
     rm.price,
     r.check_in,
     r.check_out,
     r.night,
     r.total_amount,
-    r.status AS reservation_status,
-    COALESCE(p.payment_status, 'No Payment') AS payment_status
+    COALESCE(r.status, 'PENDING') AS reservation_status,
+    COALESCE(MAX(p.payment_status), 'No Payment') AS payment_status
 
 FROM reservationstbl r
 
@@ -55,7 +55,11 @@ JOIN userstbl u
     ON r.user_id = u.user_id
 
 LEFT JOIN paymentstbl p
-    ON r.reservation_id = p.reservation_id";
+    ON r.reservation_id = p.reservation_id
+
+GROUP BY r.reservation_id
+
+ORDER BY r.reservation_id DESC";
 
                 MySql.Data.MySqlClient.MySqlCommand cmd =
                     new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
@@ -111,9 +115,7 @@ LEFT JOIN paymentstbl p
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
-            StaffDashboards staffDashboardForm = new StaffDashboards();
-            staffDashboardForm.ShowDialog();
-            this.Hide();
+            LoadStaffReservations();
         }
 
         private void btnCheckInCheckOut_Click(object sender, EventArgs e)

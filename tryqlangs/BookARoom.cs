@@ -276,18 +276,23 @@ namespace tryqlangs
                 int userId = LogIn.UserSession.userstblID;
 
                 string query = @"
-                SELECT 
-                    userstbl.email,
-                    roomstbl.room_number,
-                    roomstbl.room_type
-                FROM reservationstbl
-                INNER JOIN roomstbl
-                    ON reservationstbl.room_id = roomstbl.room_id
-                INNER JOIN userstbl
-                    ON reservationstbl.user_id = userstbl.user_id
-                WHERE reservationstbl.user_id = @userid
-                ORDER BY reservationstbl.reservation_id DESC
-                LIMIT 1";
+SELECT 
+    u.email,
+    r.room_number,
+    rm.room_type
+
+FROM reservationstbl r
+
+INNER JOIN userstbl u
+    ON r.user_id = u.user_id
+
+INNER JOIN roomstbl rm
+    ON r.room_id = rm.room_id
+
+WHERE r.user_id = @userid
+
+ORDER BY r.reservation_id DESC
+LIMIT 1";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.Connection))
                 {
