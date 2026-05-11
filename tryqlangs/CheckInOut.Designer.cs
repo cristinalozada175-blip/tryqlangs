@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInOut));
-            btnUsers = new Button();
             btnRoomStatus = new Button();
             btnReservation = new Button();
             btnCheckInOut = new Button();
@@ -53,19 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvSummary).BeginInit();
             SuspendLayout();
             // 
-            // btnUsers
-            // 
-            btnUsers.BackColor = Color.Transparent;
-            btnUsers.FlatAppearance.BorderSize = 0;
-            btnUsers.FlatStyle = FlatStyle.Flat;
-            btnUsers.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUsers.ForeColor = Color.White;
-            btnUsers.Location = new Point(19, 205);
-            btnUsers.Name = "btnUsers";
-            btnUsers.Size = new Size(190, 37);
-            btnUsers.TabIndex = 7;
-            btnUsers.UseVisualStyleBackColor = false;
-            // 
             // btnRoomStatus
             // 
             btnRoomStatus.BackColor = Color.Transparent;
@@ -73,7 +59,7 @@
             btnRoomStatus.FlatStyle = FlatStyle.Flat;
             btnRoomStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRoomStatus.ForeColor = Color.White;
-            btnRoomStatus.Location = new Point(-3, 251);
+            btnRoomStatus.Location = new Point(-1, 222);
             btnRoomStatus.Name = "btnRoomStatus";
             btnRoomStatus.Size = new Size(207, 37);
             btnRoomStatus.TabIndex = 8;
@@ -87,7 +73,7 @@
             btnReservation.FlatStyle = FlatStyle.Flat;
             btnReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReservation.ForeColor = Color.White;
-            btnReservation.Location = new Point(-3, 300);
+            btnReservation.Location = new Point(-1, 271);
             btnReservation.Name = "btnReservation";
             btnReservation.Size = new Size(207, 37);
             btnReservation.TabIndex = 9;
@@ -101,7 +87,7 @@
             btnCheckInOut.FlatStyle = FlatStyle.Flat;
             btnCheckInOut.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCheckInOut.ForeColor = Color.White;
-            btnCheckInOut.Location = new Point(-3, 351);
+            btnCheckInOut.Location = new Point(-1, 322);
             btnCheckInOut.Name = "btnCheckInOut";
             btnCheckInOut.Size = new Size(208, 54);
             btnCheckInOut.TabIndex = 10;
@@ -115,7 +101,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(-3, 472);
+            button4.Location = new Point(-1, 443);
             button4.Name = "button4";
             button4.Size = new Size(212, 37);
             button4.TabIndex = 11;
@@ -310,7 +296,6 @@
             Controls.Add(btnCheckInOut);
             Controls.Add(btnReservation);
             Controls.Add(btnRoomStatus);
-            Controls.Add(btnUsers);
             Name = "CheckInOut";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CheckInOut";
@@ -321,8 +306,6 @@
         }
 
         #endregion
-
-        private Button btnUsers;
         private Button btnRoomStatus;
         private Button btnReservation;
         private Button btnCheckInOut;

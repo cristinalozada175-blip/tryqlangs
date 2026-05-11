@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDashboards));
             btnLogOut = new Button();
             btnRoomStatus = new Button();
-            btnUsers = new Button();
             btnCheckInCheckOut = new Button();
             dgvRecentReservation = new DataGridView();
             btnReservation = new Button();
@@ -46,7 +45,7 @@
             btnLogOut.FlatStyle = FlatStyle.Flat;
             btnLogOut.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
-            btnLogOut.Location = new Point(11, 469);
+            btnLogOut.Location = new Point(12, 442);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(190, 37);
             btnLogOut.TabIndex = 14;
@@ -60,25 +59,12 @@
             btnRoomStatus.FlatStyle = FlatStyle.Flat;
             btnRoomStatus.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRoomStatus.ForeColor = Color.White;
-            btnRoomStatus.Location = new Point(11, 253);
+            btnRoomStatus.Location = new Point(12, 226);
             btnRoomStatus.Name = "btnRoomStatus";
             btnRoomStatus.Size = new Size(190, 37);
             btnRoomStatus.TabIndex = 13;
             btnRoomStatus.UseVisualStyleBackColor = false;
             btnRoomStatus.Click += btnRoomStatus_Click;
-            // 
-            // btnUsers
-            // 
-            btnUsers.BackColor = Color.Transparent;
-            btnUsers.FlatAppearance.BorderSize = 0;
-            btnUsers.FlatStyle = FlatStyle.Flat;
-            btnUsers.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUsers.ForeColor = Color.White;
-            btnUsers.Location = new Point(11, 205);
-            btnUsers.Name = "btnUsers";
-            btnUsers.Size = new Size(190, 37);
-            btnUsers.TabIndex = 11;
-            btnUsers.UseVisualStyleBackColor = false;
             // 
             // btnCheckInCheckOut
             // 
@@ -87,7 +73,7 @@
             btnCheckInCheckOut.FlatStyle = FlatStyle.Flat;
             btnCheckInCheckOut.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCheckInCheckOut.ForeColor = Color.White;
-            btnCheckInCheckOut.Location = new Point(11, 353);
+            btnCheckInCheckOut.Location = new Point(12, 326);
             btnCheckInCheckOut.Name = "btnCheckInCheckOut";
             btnCheckInCheckOut.Size = new Size(190, 51);
             btnCheckInCheckOut.TabIndex = 10;
@@ -111,7 +97,7 @@
             btnReservation.FlatStyle = FlatStyle.Flat;
             btnReservation.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReservation.ForeColor = Color.White;
-            btnReservation.Location = new Point(8, 299);
+            btnReservation.Location = new Point(9, 272);
             btnReservation.Name = "btnReservation";
             btnReservation.Size = new Size(190, 37);
             btnReservation.TabIndex = 25;
@@ -145,7 +131,6 @@
             Controls.Add(dgvRecentReservation);
             Controls.Add(btnLogOut);
             Controls.Add(btnRoomStatus);
-            Controls.Add(btnUsers);
             Controls.Add(btnCheckInCheckOut);
             Name = "StaffDashboards";
             StartPosition = FormStartPosition.CenterScreen;
@@ -159,7 +144,6 @@
 
         private Button btnLogOut;
         private Button btnRoomStatus;
-        private Button btnUsers;
         private Button btnCheckInCheckOut;
         private DataGridView dgvRecentReservation;
         private Button btnReservation;

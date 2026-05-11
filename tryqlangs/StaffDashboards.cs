@@ -109,7 +109,7 @@ ORDER BY r.reservation_id DESC";
         {
             RoomStatus roomStatusForm = new RoomStatus();
             roomStatusForm.ShowDialog();
-            this.Hide();
+            this.Close();
 
         }
 
@@ -122,7 +122,7 @@ ORDER BY r.reservation_id DESC";
         {
             CheckInOut checkInOutForm = new CheckInOut();
             checkInOutForm.ShowDialog();
-            this.Hide();
+            this.Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

@@ -175,7 +175,7 @@
             txtRoomStatus.BackgroundImageLayout = ImageLayout.Center;
             txtRoomStatus.FlatAppearance.BorderSize = 0;
             txtRoomStatus.FlatStyle = FlatStyle.Flat;
-            txtRoomStatus.Location = new Point(-1, 253);
+            txtRoomStatus.Location = new Point(3, 226);
             txtRoomStatus.Name = "txtRoomStatus";
             txtRoomStatus.Size = new Size(204, 33);
             txtRoomStatus.TabIndex = 33;
@@ -188,7 +188,7 @@
             btnReservation.BackgroundImageLayout = ImageLayout.Center;
             btnReservation.FlatAppearance.BorderSize = 0;
             btnReservation.FlatStyle = FlatStyle.Flat;
-            btnReservation.Location = new Point(-1, 301);
+            btnReservation.Location = new Point(3, 274);
             btnReservation.Name = "btnReservation";
             btnReservation.Size = new Size(204, 33);
             btnReservation.TabIndex = 34;
@@ -201,7 +201,7 @@
             btnCheckInOut.BackgroundImageLayout = ImageLayout.Center;
             btnCheckInOut.FlatAppearance.BorderSize = 0;
             btnCheckInOut.FlatStyle = FlatStyle.Flat;
-            btnCheckInOut.Location = new Point(-1, 350);
+            btnCheckInOut.Location = new Point(3, 323);
             btnCheckInOut.Name = "btnCheckInOut";
             btnCheckInOut.Size = new Size(204, 53);
             btnCheckInOut.TabIndex = 35;
@@ -214,7 +214,7 @@
             btnLogOut.BackgroundImageLayout = ImageLayout.Center;
             btnLogOut.FlatAppearance.BorderSize = 0;
             btnLogOut.FlatStyle = FlatStyle.Flat;
-            btnLogOut.Location = new Point(-1, 470);
+            btnLogOut.Location = new Point(3, 443);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(204, 42);
             btnLogOut.TabIndex = 36;

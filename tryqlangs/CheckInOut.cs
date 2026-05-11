@@ -412,21 +412,21 @@ ORDER BY r.reservation_id DESC";
         {
             RoomStatus roomStatusForm = new RoomStatus();
             roomStatusForm.ShowDialog();
-            this.Hide();
+            this.Close();
         }
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
             StaffDashboards staffDashboardForm = new StaffDashboards();
             staffDashboardForm.ShowDialog();
-            this.Hide();
+            this.Close();
         }
 
         private void btnCheckInOut_Click(object sender, EventArgs e)
         {
             CheckInOut checkInOutForm = new CheckInOut();
             checkInOutForm.ShowDialog();
-            this.Hide();
+            this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)

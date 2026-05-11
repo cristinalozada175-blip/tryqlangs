@@ -98,21 +98,21 @@ namespace tryqlangs
         {
             RoomStatus roomStatus = new RoomStatus();
             roomStatus.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnReservation_Click(object sender, EventArgs e)
         {
             StaffDashboards staffDashboards = new StaffDashboards();
             staffDashboards.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnCheckInOut_Click(object sender, EventArgs e)
         {
             CheckInOut checkInOut = new CheckInOut();
             checkInOut.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
